@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9%3y(c1=@m6njdw^yy43-jjlz52xj+ujjtiq^xz!h#+5$%b!z0'
+SECRET_KEY = ')&+i^%hmfysni&e21do3*op*4fk(2wzw4waev!a#x^@hnrh^a8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,8 +75,11 @@ WSGI_APPLICATION = 'afterlive.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'afterlive',
+        'USER': 'root',
+        'PASSWORD': 'Js14d2h5o7u9e0',
+        'HOST': 'localhost',
     }
 }
 
