@@ -1,0 +1,6 @@
+{% extends "home/header.html" %}
+{% block content %}
+	{% for link in object_list %}
+		<h5><a href="{{link.facebook}}"> Facebook </a></h5>
+	{% endfor %}
+{% endblock %}
