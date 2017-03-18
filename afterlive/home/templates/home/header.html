@@ -9,15 +9,15 @@
   <title>After.Live</title>
   {% load staticfiles %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!--<script src="static\search\js\script.js"></script>-->
+  <!-- <script src="static/home/js/script.js"></script> -->
   <!--add the stylsheets the style.css should be before the bootstrap.min.css-->
-  <!--<link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css"/>
-  <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css"/>-->
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css"/>
+  <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <!--Lets add some google analytics, this script should appear at the top of every webpage-->
 
-  <!--<link rel="icon" href="{% static 'search/images/favicon.ico' %}?v=2">-->
+  <link rel="icon" href="{% static 'home/images/favicon.ico' %}?v=2">
 
   <!--Google analytics-->
   <script>
@@ -58,14 +58,14 @@
     <div class="">
       <div class="logo">
         <a href="/">
-          <!--<img src="{% static 'search/images/logo.png' %}" alt="logo" height="32">-->
+          <img src="{% static 'home/images/logo.png' %}" alt="logo" height="32">
         </a>
       </div>
       <div class="ICON-C">
-      <!--  <div class="ICON ICON-A"><a href="https://www.facebook.com/afterliveisreal/"><img class="center-block" src="{% static 'search/images/SocialMedia/Facebook.png' %}" height="40px"></a></div>
-        <div class="ICON ICON-A"><a href="https://www.instagram.com/afterliveisreal/?hl=en"><img class="center-block" src="{% static 'search/images/SocialMedia/Instagram.png' %}" height="40px"></a></div>
-        <div class="ICON ICON-A"><a href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ"><img class="center-block" src="{% static 'search/images/SocialMedia/Youtube.png' %}" height="40px"></a></div>
-        <div class="ICON tooltip-ICON" id="searchbtn"><a href="#"><img  class="center-block" src="{% static 'search/images/search.png' %}" height="40px"></a><span class="tooltiptext" id="tooltiptext">Got back to the top, or search again!  <img src="{% static 'search/images/search.png' %}" height="25px"></span></div>-->
+        <div class="ICON ICON-A"><a href="https://www.facebook.com/afterliveisreal/"><img class="center-block" src="{% static 'home/images/SocialMedia/Facebook.png' %}" height="40px"></a></div>
+        <div class="ICON ICON-A"><a href="https://www.instagram.com/afterliveisreal/?hl=en"><img class="center-block" src="{% static 'home/images/SocialMedia/Instagram.png' %}" height="40px"></a></div>
+        <div class="ICON ICON-A"><a href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ"><img class="center-block" src="{% static 'home/images/SocialMedia/Youtube.png' %}" height="40px"></a></div>
+        <div class="ICON tooltip-ICON" id="searchbtn"><a href="#"><img  class="center-block" src="{% static 'home/images/search.png' %}" height="40px"></a><span class="tooltiptext" id="tooltiptext">Got back to the top, or search again!  <img src="{% static 'home/images/search.png' %}" height="25px"></span></div>
       </div>
     </div>
   </div>
@@ -73,6 +73,7 @@
   <div class="inner-body">
     <div class="page-content">
       {% block content %}
+
       {% endblock %}
     </div>
   </div>

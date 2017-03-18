@@ -8,7 +8,7 @@ class Link(models.Model):
     Youtube = models.CharField(max_length = 512, blank=True, null=True)
     Twitter = models.CharField(max_length = 512, blank=True, null=True)
     Tumblr = models.CharField(max_length = 512, blank=True, null=True)
-    Flickr = models.CharField(max_length = 512, blank=True, null=True)
+    Soundcloud = models.CharField(max_length = 512, blank=True, null=True)
     Pinterest = models.CharField(max_length = 512, blank=True, null=True)
     Website = models.CharField(max_length = 512, blank=True, null=True)
 
@@ -46,6 +46,7 @@ class Festival(models.Model):
     def __str__(self):
         return str(self.Name)
 
+
 class Artist(models.Model):
     Name = models.CharField(max_length=140, primary_key=True)
     City = models.CharField(max_length=140, blank=True, null=True)
@@ -55,6 +56,8 @@ class Artist(models.Model):
 
     def __str__(self):
         return str(self.Name)
+
+
 
 class Festival_Artist(models.Model):
     ArtistID = models.ForeignKey(Artist, on_delete=models.CASCADE, blank=True, null=True)

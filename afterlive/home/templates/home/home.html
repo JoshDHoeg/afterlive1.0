@@ -1,6 +1,253 @@
 {% extends "home/header.html" %}
+
 {% block content %}
-	{% for link in object_list %}
-		<h5><a href="{{link.facebook}}"> Facebook </a></h5>
-	{% endfor %}
+{% load static %}
+
+  <link rel="stylesheet" href="{% static 'home/css/circles.css' %}" type="text/css"/>
+  <div id="append">
+  <script>
+    	{% for link in festival_list %}
+
+        var prof = document.createElement("IMG");
+        prof.setAttribute("src", "{{ link.Background }}");
+        prof.setAttribute("alt", "{{ link.Name }}_festival_backrgound");
+        prof.setAttribute("class", "profile");
+        prof.setAttribute("width", "200px");
+
+        var festivalLink = document.createElement("A");
+        festivalLink.setAttribute("href", "/{{ link.Name }}");
+        festivalLink.setAttribute("height", "200px");
+        festivalLink.setAttribute("width", "200px");
+        festivalLink.appendChild(prof);
+
+        var festivalbtn = document.createElement("div");
+        festivalbtn.setAttribute("class", "circles");
+        festivalbtn.appendChild(festivalLink);
+
+        var title = document.createElement("h1");
+        var t = document.createTextNode("{{ link.Name }}");
+        title.appendChild(t);
+
+        var festivalcontainer = document.createElement("div");
+        festivalcontainer.setAttribute("class", "circles_wrapper");
+        festivalcontainer.appendChild(title);
+        festivalcontainer.appendChild(festivalbtn);
+
+        document.getElementById("append").appendChild(festivalcontainer);
+
+        var position = 0;
+
+        while(position < 6){
+          position += 1;
+          if("{{ link.LinkID.Facebook }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_facebook_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Facebook }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Facebook");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+
+            console.log("{{ link.LinkID.Facebook }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Instagram }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_instagram_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Instagram }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Instagram");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Instagram }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Youtube }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_youtube_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Youtube }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Youtube");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Youtube }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Twitter }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_twitter_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Twitter }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Twitter");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Twitter }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Tumblr }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_tublr_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Tumblr }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Tumblr");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Tumblr }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Soundcloud }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\Soundcloud1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_soundcloud_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Soundcloud }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Soundcloud");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Soundcloud }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Pinterest }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\pinterest1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_pinterest_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Pinterest }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Pinterest");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Pinterest }}");
+            console.log(position);
+            position += 1;
+          }
+          if("{{ link.LinkID.Website }}" != ""){
+            var icon = document.createElement("IMG");
+            icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}")
+
+            icon.setAttribute("alt", "{{ link.Name }}_festival_website_icon");
+
+
+            var icon_link = document.createElement("A");
+            icon_link.setAttribute("href", "{{ link.LinkID.Website }}")
+            icon_link.setAttribute("class", "social");
+            icon_link.appendChild(icon);
+
+            var icon_div = document.createElement("DIV");
+            icon_div.setAttribute("id", "Website");
+            icon_div.setAttribute("class", "pos" + position);
+            icon_div.appendChild(icon_link);
+
+            festivalbtn.appendChild(icon_div);
+            console.log("{{ link.LinkID.Website }}");
+            console.log(position);
+            position += 1;
+          }
+          position = 6;
+        }
+
+        console.log("{{ link.Background }}");
+    	{% endfor %}
+    </script>
+  </div>
+<!--
+  <div class="circles_wrapper">
+    <h1>Mysteryland USA</h1>
+    <div class="circles">
+      <img src="{% static  'home\images\logos\festivals\Mysteryland.png' %}" class="profile">
+      <div class="pos1" id="facebook">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+      <div class="pos2" id="instagram">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+      <div class="pos3" id="youtub">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+      <div class="pos4" id="instagram">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+      <div class="pos5" id="instagram">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+      <div class="pos6" id="instagram">
+        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
+      </div>
+    </div>
+  </div> -->
+
+
 {% endblock %}

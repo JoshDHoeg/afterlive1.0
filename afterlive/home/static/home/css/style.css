@@ -1,0 +1,464 @@
+/*----------------------------------------------------------------------------
+the following code is grouped based off of the template that it is associated with
+
+  The contents of each section are definied in greater depth in the comments proceeding
+the particular seciton. THe common layout will be basic format of fonts and other base stylings
+followed by more specific modifications for each section of code.
+
+Section 1 === Home.html template and other webpage default styling
+Section 2 === header.html template and any other styling related to search function
+section 3 === Search.html template and any styling for the search content
+section 4 === contact.html template and all styling related to the contact app
+section 5 === terms.html template and any css related to the terms of service
+
+@author Josh Hoeg
+------------------------------------------------------------------------------
+SECTION 1 - Default/ home.html
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------fonts*/
+html{
+  height: 100%;
+  box-sizing: border-box;
+}
+html body{
+  background-color: #000000;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: lighter;
+}
+.page-wrapper {
+	min-height:100%;
+	position:relative;
+}
+.inner-body{
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+@media screen and (max-width: 624px){
+  html .inner-body{
+    padding-top: 129px;
+  }
+}
+h1{
+  color: #e21818;
+}
+h3{
+  color: #afafaf;
+  font-weight: bold;
+}
+h4{
+  color: #afafaf;
+  font-weight: bold;
+}
+p{
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+}
+li{
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/*----------------------------------------------------------------------logo*/
+body .header{
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  background: #000000;
+  border-bottom: 1px solid #ffffff;
+}
+.logo{
+  padding: 15px;
+  text-align: center;
+  float: left;
+}
+.header .ICON{
+  padding: 10px;
+  display: inline-block;
+  float: right;
+}
+.header .ICON img{
+  text-align: center;
+  margin: 0;
+}
+@media screen  and (max-width: 624px){
+  .logo{
+    float: none;
+  }
+  .header .ICON{
+    display:inline-block;;
+    float:none;
+  }
+  .header .ICON-C{
+    text-align: center;
+  }
+}
+/*-------------------------------------------------------------------Tooltip*/
+.tooltip-ICON .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #474646;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    padding: 25px 5px;
+    position: fixed;
+    z-index: 1;
+    transform: translateX(-75px);
+}
+.tooltip-ICON:hover .tooltiptext {
+    visibility: visible;
+}
+/*-------------------------------------------------------------img-container*/
+.img-container{
+  margin-top: 20px;
+}
+
+/*--------------------------------------------------------------------footer*/
+.footer{
+  background-color: #000000;
+  border-top: 1px solid #ffffff;
+  text-align: center;
+  height: 50px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+.footer a{
+  color: #fff;
+  padding: 10px;
+}
+.footer div{
+  padding-top: 10px;
+}
+
+/*----------------------------------------------------------------------------
+SECTION 2 - header.html
+------------------------------------------------------------------------------
+---------------------------------------------------------------------banner*/
+body .navbar{
+  background-color: #000000;
+}
+.header{
+  margin: 0 auto;
+}
+.banner{
+  background-color: #e21818;
+  height: auto;
+  opacity: .75;
+  text-align: center;
+}
+.banner h3{
+  color: #ffffff;
+  margin: 0;
+  padding: 12px;
+  font-size: 200%;
+}
+/*-----------------------------------------------------------festival-scroll*/
+.Festival-Scroll-Outer{
+  overflow: auto;
+  margin-top: 30px;
+  padding: 20px;
+  width: 85%;
+}
+body .Festival-Scroll-Inner{
+  width: 1900px;
+  overflow: auto;
+}
+.festival-tag{
+  display: inline;
+  padding: 20px;
+  opacity: .5;
+}
+.festival-tag:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+@media screen  and (max-width: 624px){
+  .festival-tag{
+    opacity: .9;
+  }
+  .Festival-Scroll-Outer{
+    margin-top: 10px;
+  }
+}
+/*-------------------------------------------------------------My-container*/
+.my-container {
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  /*height: 440px;*/
+  padding-top: 0;
+}
+.my-container .search {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  padding-top: 20px;
+}
+.my-container .background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.25;
+}
+.my-container:hover .background{
+  opacity: 0.35;
+}
+.my-container .ICON-D{
+  display: none;
+}
+/*---------------------------------------------------------------search form*/
+.form-container{
+  height:50px;
+  margin-bottom: 7px;
+}
+.searchBar{
+  height: 50px;
+  /*width: 45%;*/
+  border-radius: 25px;
+  border-color: #000000;
+  background-color: #474646;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+}
+.searchBar:hover{
+  background-color: #2d2d2d;
+}
+.search form{
+  padding-top: 0px;
+}
+.searchIcon{
+  padding-top: 35px;
+}
+
+/*----------------------------------------------------------------------tags*/
+.tagbtn{
+  visibility: visible;
+  color: #000;
+  margin-left: 3px;
+  margin-right: 3px;
+  float: left;
+  background-color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+}
+.tag-scroll-container .tag-container{
+  overflow: auto;
+  padding: 10px;
+  width: 85%;
+}
+.tags{
+  max-height: 40px;
+  width: 5000px;
+  overflow: auto;
+}
+.tag-container, .tag-container .tags{
+  transform:rotateX(180deg);
+    -ms-transform:rotateX(180deg); /* IE 9 */
+    -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+}
+.move-icon{
+  font-size: 35px;
+  padding-top: 17px;
+  cursor: pointer;
+}
+.move-icon span{
+  color: #e21818;
+}
+
+/*------------------------------------------------------------------selected*/
+.selected{
+  background-color: #e21818;
+  color: #fff;
+}
+.selected-tags{
+  padding: 10px;
+}
+.selected-tags-container{
+  border-bottom: 1px solid #afafaf;
+  border-top: 1px solid #afafaf;
+  display: none;
+}
+.selected-tags-container h1{
+  color: #ffffff;
+}
+#selected-tags-title{
+  padding-top: 10px;
+}
+#selected-tags-title h1{
+margin: 0 auto;
+}
+#clearAll{
+  visibility: visible;
+  background-color: #e21818;
+  color: #fff;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+}
+/*------------------------------------------------------------------media css*/
+@media screen  and (max-width: 624px){
+  .inner-body{
+    padding-top: 60px;
+  }
+  .searchIcon-container{
+    display: none;
+  }
+  .search{
+    padding-top:50px;
+  }
+  .move-icon{
+    display: none;
+  }
+  .my-container h3{
+    font-size: 36px;
+  }
+  .my-container .ICON-D{
+    display:inline-block;
+    padding: 3px;
+    position: fixed;
+  }
+}
+
+/*----------------------------------------------------------------------------
+SECTION 3 - search.html
+------------------------------------------------------------------------------
+*/
+.post-container{
+  height: auto;
+}
+.contentItem{
+  padding: 10px;
+  border-radius: 10px;
+}
+iframe{
+  max-width: 100%;
+  height: 350px;
+  border: 4px solid #474646;
+  border-radius: 25px;
+}
+iframe:hover{
+  border: 2px solid #595959;
+  border-radius: 25px;
+}
+@media screen and (max-width: 990px){
+  iframe{
+  }
+    height: 378px;
+    border-radius: 25px;
+    border-radius: 25px;
+  }
+}
+
+/*----------------------------------------------------------------------------
+SECTION 4 - contact.html/submitted.html
+------------------------------------------------------------------------------
+*/
+.contact-Container h1{
+  color: #e21818;
+  text-align: left;
+}
+.contact-Container h2{
+  color: #ffffff;
+}
+.contact-Container{
+    border-top: 1px solid #afafaf;
+    padding-bottom: 5%;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.contactCall{
+  padding-top: 3%;
+}
+form p{
+  color: #000000;
+  border-radius: 25px;
+}
+form label{
+  color: #ffffff;
+  display: block;
+}
+form button{
+  visibility: visible;
+  color: #000;
+  margin-left: 3px;
+  margin-right: 3px;
+  background-color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+}
+form input{
+  width: 60%;
+  border-radius: 20px;
+  text-align: center;
+  background: #474646;
+  border-color: #000000;
+}
+form textarea{
+  width: 60%;
+  border-radius: 20px;
+  text-align: center;
+  background: #474646;
+  border-color: #000000;
+}
+
+/*----------------------------------------------------------------------------
+SECTION 5 - terms.html
+------------------------------------------------------------------------------
+*/
+.TOS-Container{
+  border-top: 1px solid #afafaf;
+}
+.TOS-Container h1{
+  color: #e21818;
+}
+.TOS-Container h3{
+  color: #afafaf;
+  font-weight: bold;
+}
+
+/*----------------------------------------------------------------------------
+SECTION 6 - Detail.html
+------------------------------------------------------------------------------
+*/
+.logo-container{
+  padding-top: 10px;
+}
+.logo-container img{
+  display: block;
+  margin: auto;
+}
+.Festival-Content-Selection{
+  text-align: center;
+  margin-top: 20px;
+}
+.Festival-Content-Selection .td-1{
+    background-color: #606060;
+}
+.Festival-Content-Selection .td-2{
+    background-color: #474646;
+}
+.Festival-Content-Selection td{
+  padding: 15px;
+}
+.Festival-Content-Selection td:hover{
+  background-color: #b7b7b7;
+}

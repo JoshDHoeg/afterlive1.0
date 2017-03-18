@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.views.generic import ListView, DetailView
 from home.models import Link
+from home.views import festival_view
 
 urlpatterns = [
-    url(r'^$', ListView.as_view(queryset=Link.objects.all(),
-        template_name="home/home.html")),
+    url(r'^$', festival_view.as_view()),
 ]
