@@ -162,24 +162,25 @@ body .navbar{
   margin-top: 30px;
   padding: 20px;
   width: 85%;
+  max-height: 400px;
+    background: #e8e11b;
 }
 body .Festival-Scroll-Inner{
+  max-height: 300px;
   width: 1900px;
-  overflow: auto;
+  overflow: hidden;
+    background: #fc2f2f;
 }
-.festival-tag{
+.cricles_wrapper{
   display: inline;
   padding: 20px;
   opacity: .5;
 }
-.festival-tag:hover{
-  opacity: 1;
-  cursor: pointer;
+.Scroll_Content_Box{
+    display: inline-block;
+      position: relative;
 }
 @media screen  and (max-width: 624px){
-  .festival-tag{
-    opacity: .9;
-  }
   .Festival-Scroll-Outer{
     margin-top: 10px;
   }

@@ -1,0 +1,23 @@
+/*-----------------------------------------------------------festival-scroll*/
+.Festival-Scroll-Outer{
+  overflow: auto;
+  margin-top: 30px;
+  padding: 20px;
+  width: 85%;
+    max-height: 300px;
+}
+body .Festival-Scroll-Inner{
+  max-height: 300px;
+  width: 1900px;
+  overflow: auto;
+}
+.cricles_wrapper{
+  display: inline;
+  padding: 20px;
+  opacity: .5;
+}
+@media screen  and (max-width: 624px){
+  .Festival-Scroll-Outer{
+    margin-top: 10px;
+  }
+}

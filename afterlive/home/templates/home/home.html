@@ -2,9 +2,10 @@
 
 {% block content %}
 {% load static %}
-
   <link rel="stylesheet" href="{% static 'home/css/circles.css' %}" type="text/css"/>
-  <div id="append">
+
+<div class="Festival-Scroll-Outer center-block">
+  <div id="append" class="container Festival-Scroll-Inner">
   <script>
     	{% for link in festival_list %}
 
@@ -22,7 +23,7 @@
 
         var festivalbtn = document.createElement("div");
         festivalbtn.setAttribute("class", "circles");
-        festivalbtn.appendChild(festivalLink);
+
 
         var title = document.createElement("h1");
         var t = document.createTextNode("{{ link.Name }}");
@@ -30,6 +31,7 @@
 
         var festivalcontainer = document.createElement("div");
         festivalcontainer.setAttribute("class", "circles_wrapper");
+        festivalcontainer.setAttribute("id", "{{ link.Name }}_container");
         festivalcontainer.appendChild(title);
         festivalcontainer.appendChild(festivalbtn);
 
@@ -57,9 +59,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-
-            console.log("{{ link.LinkID.Facebook }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Instagram }}" != ""){
@@ -80,8 +79,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Instagram }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Youtube }}" != ""){
@@ -102,8 +99,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Youtube }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Twitter }}" != ""){
@@ -124,8 +119,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Twitter }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Tumblr }}" != ""){
@@ -146,8 +139,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Tumblr }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Soundcloud }}" != ""){
@@ -168,8 +159,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Soundcloud }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Pinterest }}" != ""){
@@ -190,8 +179,6 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Pinterest }}");
-            console.log(position);
             position += 1;
           }
           if("{{ link.LinkID.Website }}" != ""){
@@ -212,42 +199,17 @@
             icon_div.appendChild(icon_link);
 
             festivalbtn.appendChild(icon_div);
-            console.log("{{ link.LinkID.Website }}");
-            console.log(position);
             position += 1;
           }
           position = 6;
         }
 
-        console.log("{{ link.Background }}");
+        festivalbtn.appendChild(festivalLink);
     	{% endfor %}
     </script>
   </div>
-<!--
-  <div class="circles_wrapper">
-    <h1>Mysteryland USA</h1>
-    <div class="circles">
-      <img src="{% static  'home\images\logos\festivals\Mysteryland.png' %}" class="profile">
-      <div class="pos1" id="facebook">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-      <div class="pos2" id="instagram">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-      <div class="pos3" id="youtub">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-      <div class="pos4" id="instagram">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-      <div class="pos5" id="instagram">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-      <div class="pos6" id="instagram">
-        <a class="social"><img src="{% static 'home/images/SocialMedia/facebook1.png' %}"></a>
-      </div>
-    </div>
-  </div> -->
+</div>
+
 
 
 {% endblock %}
