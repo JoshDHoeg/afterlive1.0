@@ -1,32 +1,28 @@
 /*----------------------------------------------------------------------------*/
 .circles_wrapper{
   width: 240px;
-  height: 500px;
-  background: #fff;
+  height: 230px;
   display: inline-block;
 }
 .circles_wrapper h1{
   text-align: center;
   position: relative;
   display: inline;
-  background: #4286f4;
   color: #fff;
 }
 
 /*-----------------------------------------------------------------------*/
 .circles{
-  height: 200px;
-  width: 200px;
-  /*margin-top: 20px;*/
+  height: 250px;
+  width: 250px;
   position: relative;
   display: inline-block;
-  background: #ea3fe2;
+  padding-top: 10px;
 }
 .circles .profile{
   border-radius: 50%;
   height: 200px;
   width: 200px;
-  /*display: inline;*/
   position: relative;
   margin-left: 20px;
   -ms-transition: all 1s ease .25s;
@@ -70,7 +66,6 @@
   transition: all 1s ease .25s;
 }
 .circles_wrapper:hover .circles_wrapper h1{
-  margin-top: 0 !important;
   -ms-transition: all .75s ease .25s;
   -webkit-transition: all .75s ease .25s;
   transition: all .75s ease .25s;

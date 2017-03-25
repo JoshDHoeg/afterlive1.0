@@ -1,214 +1,270 @@
 {% extends "home/header.html" %}
-
 {% block content %}
 {% load static %}
-  <link rel="stylesheet" href="{% static 'home/css/circles.css' %}" type="text/css"/>
 
-<div class="Festival-Scroll-Outer center-block">
-  <div id="append" class="container Festival-Scroll-Inner">
-  <script>
-    	{% for link in festival_list %}
+<script>
+function makeCircle(festivals, titles, Background, Name, facebook, instagram, youtube, twitter, tumblr, soundcloud, pinterest, website) {
+  var prof = document.createElement("IMG");
+  prof.setAttribute("src", Background);
+  prof.setAttribute("alt", Name + "_festival_backrgound");
+  prof.setAttribute("class", "profile");
+  prof.setAttribute("width", "200px");
 
-        var prof = document.createElement("IMG");
-        prof.setAttribute("src", "{{ link.Background }}");
-        prof.setAttribute("alt", "{{ link.Name }}_festival_backrgound");
-        prof.setAttribute("class", "profile");
-        prof.setAttribute("width", "200px");
+  var festivalLink = document.createElement("A");
+  festivalLink.setAttribute("href", "/" + Name);
+  festivalLink.setAttribute("height", "200px");
+  festivalLink.setAttribute("width", "200px");
+  festivalLink.appendChild(prof);
 
-        var festivalLink = document.createElement("A");
-        festivalLink.setAttribute("href", "/{{ link.Name }}");
-        festivalLink.setAttribute("height", "200px");
-        festivalLink.setAttribute("width", "200px");
-        festivalLink.appendChild(prof);
-
-        var festivalbtn = document.createElement("div");
-        festivalbtn.setAttribute("class", "circles");
+  var festivalbtn = document.createElement("div");
+  festivalbtn.setAttribute("class", "circles");
 
 
-        var title = document.createElement("h1");
-        var t = document.createTextNode("{{ link.Name }}");
-        title.appendChild(t);
+  var title = document.createElement("h1");
+  var t = document.createTextNode(Name);
+  title.appendChild(t);
 
-        var festivalcontainer = document.createElement("div");
-        festivalcontainer.setAttribute("class", "circles_wrapper");
-        festivalcontainer.setAttribute("id", "{{ link.Name }}_container");
-        festivalcontainer.appendChild(title);
-        festivalcontainer.appendChild(festivalbtn);
+  var titleContainer = document.createElement("div");
+  titleContainer.setAttribute("class", "circles_title container");
+  titleContainer.setAttribute("id", Name + "_title_container");
+  titleContainer.appendChild(title);
 
-        document.getElementById("append").appendChild(festivalcontainer);
+  var festivalcontainer = document.createElement("div");
+  festivalcontainer.setAttribute("class", "circles_wrapper");
+  festivalcontainer.setAttribute("id", Name + "_container");
+  festivalcontainer.appendChild(festivalbtn);
 
-        var position = 0;
-
-        while(position < 6){
-          position += 1;
-          if("{{ link.LinkID.Facebook }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}")
-
-            icon.setAttribute("alt", "{{ link.Name }}_festival_facebook_icon");
+  document.getElementById(festivals).appendChild(festivalcontainer);
+  document.getElementById(titles).appendChild(titleContainer);
 
 
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Facebook }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
+  var position = 0;
 
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Facebook");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
+  while(position < 6){
+    position += 1;
+    if(facebook != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}")
 
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Instagram }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}")
-
-            icon.setAttribute("alt", "{{ link.Name }}_festival_instagram_icon");
+      icon.setAttribute("alt", Name + "_festival_facebook_icon");
 
 
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Instagram }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", facebook)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
 
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Instagram");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Facebook");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
 
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Youtube }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}")
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(instagram != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}")
 
-            icon.setAttribute("alt", "{{ link.Name }}_festival_youtube_icon");
-
-
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Youtube }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
-
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Youtube");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
-
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Twitter }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}")
-
-            icon.setAttribute("alt", "{{ link.Name }}_festival_twitter_icon");
+      icon.setAttribute("alt", Name + "_festival_instagram_icon");
 
 
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Twitter }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", instagram)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
 
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Twitter");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Instagram");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
 
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Tumblr }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}")
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(youtube != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}")
 
-            icon.setAttribute("alt", "{{ link.Name }}_festival_tublr_icon");
-
-
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Tumblr }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
-
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Tumblr");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
-
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Soundcloud }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\Soundcloud1.png' %}")
-
-            icon.setAttribute("alt", "{{ link.Name }}_festival_soundcloud_icon");
+      icon.setAttribute("alt", Name + "_festival_youtube_icon");
 
 
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Soundcloud }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", youtube)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
 
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Soundcloud");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Youtube");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
 
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Pinterest }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\pinterest1.png' %}")
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(twitter != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}")
 
-            icon.setAttribute("alt", "{{ link.Name }}_festival_pinterest_icon");
-
-
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Pinterest }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
-
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Pinterest");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
-
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          if("{{ link.LinkID.Website }}" != ""){
-            var icon = document.createElement("IMG");
-            icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}")
-
-            icon.setAttribute("alt", "{{ link.Name }}_festival_website_icon");
+      icon.setAttribute("alt", Name + "_festival_twitter_icon");
 
 
-            var icon_link = document.createElement("A");
-            icon_link.setAttribute("href", "{{ link.LinkID.Website }}")
-            icon_link.setAttribute("class", "social");
-            icon_link.appendChild(icon);
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", twitter)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
 
-            var icon_div = document.createElement("DIV");
-            icon_div.setAttribute("id", "Website");
-            icon_div.setAttribute("class", "pos" + position);
-            icon_div.appendChild(icon_link);
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Twitter");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
 
-            festivalbtn.appendChild(icon_div);
-            position += 1;
-          }
-          position = 6;
-        }
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(tumblr != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}")
 
-        festivalbtn.appendChild(festivalLink);
-    	{% endfor %}
-    </script>
+      icon.setAttribute("alt", Name + "_festival_tublr_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", tumblr)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Tumblr");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(soundcloud != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\Soundcloud1.png' %}")
+
+      icon.setAttribute("alt", Name + "_festival_soundcloud_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", soundcloud)
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Soundcloud");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(pinterest != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\pinterest1.png' %}")
+
+      icon.setAttribute("alt", Name + "_festival_pinterest_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", pinterest);
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Pinterest");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    if(website != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}")
+
+      icon.setAttribute("alt", Name + "_festival_website_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", website);
+      icon_link.setAttribute("class", "social");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("DIV");
+      icon_div.setAttribute("id", "Website");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      festivalbtn.appendChild(icon_div);
+      position += 1;
+    }
+    position = 6;
+  }
+
+  festivalbtn.appendChild(festivalLink);
+}
+</script>
+
+<link rel="stylesheet" href="{% static 'home/css/circles.css' %}" type="text/css"/>
+
+<div class="Scroll" id="festival_scroll">
+  <h1 class="Scroll_title">FESTIVALS</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="festival-title-append" class="container Scroll-Inner-Titles"></div>
+      <div id="festival-append" class="container Scroll-Inner-Circles">
+      <script>
+
+        	{% for link in festival_list %}
+
+              makeCircle("festival-append", "festival-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+
+        	{% endfor %}
+        </script>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="Scroll" id="photographer_scroll">
+  <h1 class="Scroll_title">PHOTOGRAHERS</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="photographer-title-append" class="container Scroll-Inner-Titles"></div>
+      <div id="photographer-append" class="container Scroll-Inner-Circles">
+      <script>
+        	{% for link in photographer_list %}
+
+            makeCircle("photographer-append", "photographer-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+
+        	{% endfor %}
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="Scroll" id="artist_scroll">
+  <h1 class="Scroll_title">ARTISTS</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="artist-title-append" class="container Scroll-Inner-Titles"></div>
+      <div id="artist-append" class="container Scroll-Inner-Circles">
+      <script>
+        	{% for link in festival_list %}
+
+            makeCircle("artist-append", "artist-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+
+        	{% endfor %}
+        </script>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 
 

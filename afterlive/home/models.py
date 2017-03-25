@@ -16,8 +16,10 @@ class Link(models.Model):
         return str(self.id);
 
 class Photographer(models.Model):
+    Name = models.CharField(max_length=140, blank=True, null=True)
     FirstName = models.CharField(max_length=140, blank=True, null=True)
     LastName = models.CharField(max_length=140, blank=True, null=True)
+    Background = models.TextField(blank=True, null=True)
     Bio = models.TextField(blank=True, null=True)
     LinkID = models.ForeignKey(Link, on_delete=models.CASCADE, blank=True, null=True)
 
@@ -49,6 +51,7 @@ class Festival(models.Model):
 
 class Artist(models.Model):
     Name = models.CharField(max_length=140, primary_key=True)
+    Background = models.TextField(blank=True, null=True)
     City = models.CharField(max_length=140, blank=True, null=True)
     Country = models.CharField(max_length=140, blank=True, null=True)
     Genre = models.CharField(max_length=140, blank=True, null=True)
