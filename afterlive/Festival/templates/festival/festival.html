@@ -1,0 +1,87 @@
+{% extends "home/footer1.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="detail_header container-fluid" style="background-image: url('{{ a.Background }}')">
+  <div class="detail_content container">
+    <div class="col-md-4 container"><img class="detail_logo" src="{{ a.Logo }}"></div>
+  </div>
+</div>
+<div class="detail_nav">
+  <ul class="center">
+    <li><a href="#">AfterMovies</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Artists</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Culture</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">People</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Photographers</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="detail_container">
+</div>
+<script>
+  {% for post in content_list %}
+      var CC = document.createElement("div");
+      var contentItem = document.createElement("iframe");
+      contentItem.src = "{{ post.ContentLink }}";
+      contentItem.width="320px";
+      contentItem.height="260px";
+      contentItem.setAttribute('allowFullScreen', 'true');
+      contentItem.className="highlightItem-iframe";
+      contentItem.scrolling="no";
+      contentItem.allowtransparency="true";
+      contentItem.id = "{{ post.id }}";
+      CC.appendChild(contentItem);
+      CC.id = "{{ post.id }}" + "a";
+      CC.className =" highlightItem"
+
+
+      document.getElementById('detail_container').appendChild(CC);
+  {% endfor %}
+</script>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if content_list.has_previous %}
+            <a href="?page={{ content_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ content_list.number }} of {{ content_list.paginator.num_pages }}.
+        </span>
+
+        {% if content_list.has_next %}
+            <a href="?page={{ content_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

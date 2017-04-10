@@ -1,4 +1,4 @@
-{% extends "home/header.html" %}
+{% extends "home/footer.html" %}
 {% block content %}
 {% load static %}
 
@@ -19,24 +19,12 @@ function makeCircle(festivals, titles, Background, Name, facebook, instagram, yo
   var festivalbtn = document.createElement("div");
   festivalbtn.setAttribute("class", "circles");
 
-
-  var title = document.createElement("h1");
-  var t = document.createTextNode(Name);
-  title.appendChild(t);
-
-  var titleContainer = document.createElement("div");
-  titleContainer.setAttribute("class", "circles_title container");
-  titleContainer.setAttribute("id", Name + "_title_container");
-  titleContainer.appendChild(title);
-
   var festivalcontainer = document.createElement("div");
   festivalcontainer.setAttribute("class", "circles_wrapper");
   festivalcontainer.setAttribute("id", Name + "_container");
   festivalcontainer.appendChild(festivalbtn);
 
   document.getElementById(festivals).appendChild(festivalcontainer);
-  document.getElementById(titles).appendChild(titleContainer);
-
 
   var position = 0;
 
@@ -209,18 +197,53 @@ function makeCircle(festivals, titles, Background, Name, facebook, instagram, yo
 }
 </script>
 
+<div class="Scroll" id="360_scroll">
+  <h1 class="Scroll_title">The Highlight Reel</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="highlights" class="container Scroll-Inner-Circles">
+      <script>
+          {% for obj in highlight_list %}
+            console.log("{{ obj.ContentLink }}" + "  1");
+
+            var CC = document.createElement("div");
+            var contentItem = document.createElement("iframe");
+            contentItem.src = "{{ obj.ContentLink }}";
+            contentItem.width="320px";
+            contentItem.height="260px";
+            contentItem.setAttribute('allowFullScreen', 'true');
+            contentItem.className="highlightItem-iframe";
+            contentItem.scrolling="no";
+            contentItem.allowtransparency="true";
+            contentItem.id = "{{ obj.id }}";
+            CC.appendChild(contentItem);
+            CC.id = "{{ obj.id }}" + "a";
+            CC.className =" highlightItem"
+
+
+            document.getElementById('highlights').appendChild(CC);
+
+
+            // makeCircle("360-append", "360-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+
+          {% endfor %}
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
 <link rel="stylesheet" href="{% static 'home/css/circles.css' %}" type="text/css"/>
 
 <div class="Scroll" id="festival_scroll">
   <h1 class="Scroll_title">FESTIVALS</h1>
   <div class="Scroll-Outer center-block">
     <div class="Scroll-Inner">
-      <div id="festival-title-append" class="container Scroll-Inner-Titles"></div>
       <div id="festival-append" class="container Scroll-Inner-Circles">
       <script>
 
         	{% for link in festival_list %}
-
+              console.log("{{ link.Background }}" + "  1");
               makeCircle("festival-append", "festival-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
 
         	{% endfor %}
@@ -234,7 +257,6 @@ function makeCircle(festivals, titles, Background, Name, facebook, instagram, yo
   <h1 class="Scroll_title">PHOTOGRAHERS</h1>
   <div class="Scroll-Outer center-block">
     <div class="Scroll-Inner">
-      <div id="photographer-title-append" class="container Scroll-Inner-Titles"></div>
       <div id="photographer-append" class="container Scroll-Inner-Circles">
       <script>
         	{% for link in photographer_list %}
@@ -248,7 +270,7 @@ function makeCircle(festivals, titles, Background, Name, facebook, instagram, yo
   </div>
 </div>
 
-<!-- <div class="Scroll" id="artist_scroll">
+<div class="Scroll" id="artist_scroll">
   <h1 class="Scroll_title">ARTISTS</h1>
   <div class="Scroll-Outer center-block">
     <div class="Scroll-Inner">
@@ -264,7 +286,24 @@ function makeCircle(festivals, titles, Background, Name, facebook, instagram, yo
       </div>
     </div>
   </div>
-</div> -->
+</div>
+
+<!--The email signup-->
+<link rel="stylesheet" href="{% static 'home/css/mcemail.css' %}" type="text/css"/>
+<div id="mc_embed_signup" class="container">
+  <form action="//live.us15.list-manage.com/subscribe/post?u=8a6b69ff560c12d6e8efd5268&amp;id=7edc17f62d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+          <label for="mce-EMAIL">EARLY ADOPTER?</label>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_8a6b69ff560c12d6e8efd5268_7edc17f62d" tabindex="-1" value="">
+        </div>
+        <div class="clear">
+          <input type="submit" value="JOIN THE FAMILY" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+  </form>
+</div>
 
 
 

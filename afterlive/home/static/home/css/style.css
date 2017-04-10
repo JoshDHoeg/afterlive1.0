@@ -1,9 +1,20 @@
 /*----------------------------------------------------------------------------
-the following code is grouped based off of the template that it is associated with
+@author Josh Hoeg
 
-  The contents of each section are definied in greater depth in the comments proceeding
-the particular seciton. THe common layout will be basic format of fonts and other base stylings
-followed by more specific modifications for each section of code.
+
+The styles man......
+Aite so all this code is currently the main cascading style sheet for the whole
+website. That can get pretty complicated so I have tried to split it up into
+sections and then split those sections up into sections, and then those sections
+into even more sections. I will eventually turn each section into their own
+page... maybe....
+
+Well lets get into it:
+Section 1 === Header.html
+Section 2 === Home.html
+Section 3 === Search.html
+
+
 
 Section 1 === Home.html template and other webpage default styling
 Section 2 === header.html template and any other styling related to search function
@@ -11,11 +22,11 @@ section 3 === Search.html template and any styling for the search content
 section 4 === contact.html template and all styling related to the contact app
 section 5 === terms.html template and any css related to the terms of service
 
-@author Josh Hoeg
-------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
 SECTION 1 - Default/ home.html
-------------------------------------------------------------------------------
------------------------------------------------------------------------fonts*/
+--------------------------------------------------------------------------------
+---------------------------------------------------------------defult-styling*/
 html{
   height: 100%;
   box-sizing: border-box;
@@ -29,9 +40,14 @@ html body{
 	min-height:100%;
 	position:relative;
 }
+#body1{
+  background-image: url('/static/home/images/Background.png');
+  background-size: cover;
+}
 .inner-body{
   padding-top: 60px;
   padding-bottom: 50px;
+  min-height: 100%;
 }
 @media screen and (max-width: 624px){
   html .inner-body{
@@ -57,9 +73,9 @@ li{
   color: #ffffff;
   font-family: 'Rajdhani', sans-serif;
 }
-/*-----------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 page loading style
------------------------------------------------------------------------------*/
+------------------------------------------------------------------------------*/
 #load_screen{
   background: #000000;
   opacity: 1;
@@ -85,7 +101,7 @@ page loading style
     100% { opacity: 0;}
 }
 
-/*----------------------------------------------------------------------logo*/
+/*------------------------------------------------------------header-logo-menu*/
 body .header{
   width: 100%;
   position: fixed;
@@ -119,54 +135,12 @@ body .header{
     text-align: center;
   }
 }
-/*-------------------------------------------------------------------Tooltip*/
-.tooltip-ICON .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #474646;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    border: 1px solid #ffffff;
-    padding: 25px 5px;
-    position: fixed;
-    z-index: 1;
-    transform: translateX(-75px);
-}
-.tooltip-ICON:hover .tooltiptext {
-    visibility: visible;
-}
-/*-------------------------------------------------------------img-container*/
-.img-container{
-  margin-top: 20px;
-}
-/*----------------------------------------------------------------------------
-Email Capture
------------------------------------------------------------------------------*/
-#mc_embed_signup form {text-align:center; padding: 50px 50px 100px 50px; clear:left; font:'Oswald', sans-serif;width:100%;}
-.mc-field-group { display: inline-block; } /* positions input field horizontally */
-#mc_embed_signup input.email {font-family:"Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif; font-size: 15px; border: 1px solid #ABB0B2;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #343434; background-color: #fff; box-sizing:border-box; height:32px; padding: 0px 0.4em; display: inline-block; margin: 0; width:350px; vertical-align:top;}
-#mc_embed_signup label {display:block; font-size:40px; padding-bottom:10px; font-weight:bold;}
-#mc_embed_signup .clear {display: inline-block; width: 200px;} /* positions button horizontally in line with input */
-#mc_embed_signup .button {font-size: 13px; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; letter-spacing: .03em; color: #fff; background-color: #e21818; box-sizing:border-box; height:32px; line-height:32px; padding:0 18px; display: inline-block; margin: 0; transition: all 0.23s ease-in-out 0s;}
-#mc_embed_signup .button:hover {background-color:#d83636; cursor:pointer;}
-#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
-#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
-#mc_embed_signup #mce-error-response {display:none;}
-#mc_embed_signup #mce-success-response {color:#529214; display:none;}
-#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
-@media (max-width: 768px) {
-    #mc_embed_signup input.email {width:100%; margin-bottom:5px;}
-    #mc_embed_signup .clear {display: block; width: 100% }
-    #mc_embed_signup .button {width: 100%; margin:0; }
-}
 /*--------------------------------------------------------------------footer*/
 .footer{
   background-color: #000000;
   border-top: 1px solid #ffffff;
   text-align: center;
   height: 50px;
-  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -179,18 +153,19 @@ Email Capture
 .footer div{
   padding-top: 10px;
 }
+#footer1{
+  position: relative;
+}
+#footer2{
+  position: fixed;
+}
+
 
 /*----------------------------------------------------------------------------
-SECTION 2 - header.html
+SECTION 2 - home.html
 ------------------------------------------------------------------------------
 ---------------------------------------------------------------------banner*/
-body .navbar{
-  background-color: #000000;
-}
-.header{
-  margin: 0 auto;
-}
-.banner{
+/*.banner{
   background-color: #e21818;
   height: auto;
   opacity: .75;
@@ -201,17 +176,97 @@ body .navbar{
   margin: 0;
   padding: 12px;
   font-size: 200%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}*/
+
+/*------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------*/
+#highlights iframe{
+  margin-top: 8px;
+  max-width: 100%;
+  border: 4px solid #000000;
 }
+#highlights iframe:hover{
+  border: 2px solid #000000;
+}
+@media screen and (max-width: 990px){
+  #highlights iframe{
+    height: 240px;
+    border-radius: 25px;
+    border-radius: 25px;
+  }
+}
+
+
+
+
+/*------------------------------------------------------------------------------
+Search Widget Styling
+------------------------------------------------------------------------------*/
+#searchwidget{
+  width: 30%;
+  display: inline-block;
+  float: right;
+  margin: 10px;
+  background: #474646;
+  border-radius: 25px;
+}
+#searchwidget .searchBar{
+  display: inline-block;
+  border: none;
+  float: left;
+  width: 85%;
+  background: rgba(255, 0, 0, 0.0);
+  height: 40px;
+  color: #ffffff;
+}
+#searchwidget .searchBar:focus{
+  border: none !important;
+}
+#searchwidget #searchBar_Submit{
+  display: inline-block;
+  border-radius: 25px;
+  float: right;
+  background: rgba(255, 0, 0, 0.0);
+  border: none;
+  width: 15%;
+  height: 40px;
+  padding: 0;
+}
+
+
 /*-----------------------------------------------------------------------------
-Scroll Bar styling with gradient background
------------------------------------------------------------------------------*/
+SECTION 3 - we made it to search.html
+------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------My-container*/
+.my-container {
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+.my-container .search {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  padding-top: 20px;
+}
+/*------------------------------------------------scroll-festival-photographer*/
 .Scroll_title{
   text-align: center;
-  font-size: 50px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  font-size: 27px;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 0;
   margin-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: #000000;
   background: -webkit-linear-gradient(-90deg, #000000, #e21818, #000000);
   background: -o-linear-gradient(-90deg, #000000, #e21818, #000000);
@@ -223,7 +278,7 @@ Scroll Bar styling with gradient background
   margin-top: 0px !important;
   padding: 20px;
   width: 85%;
-  height: 340px;
+  height: 280px;
   background: #000000;
   padding: 0;
   background: -webkit-linear-gradient(-90deg, #000000, #353535, #000000);
@@ -231,25 +286,14 @@ Scroll Bar styling with gradient background
   background: -moz-linear-gradient(-90deg, #000000, #353535, #000000);
   background: linear-gradient(-90deg, #000000, #353535, #000000);
 }
-.Scroll-Inner-Titles{
-  width: 1900px;
-}
 body .Scroll-Inner-Circles{
   max-height: 300px;
   width: 1900px;
   overflow: hidden;
 }
-body .Scroll-Inner-Titles .circles_title{
-  width: 250px;
-  display: inline-block;
-}
-body .Scroll-Inner-Titles .circles_title h1{
-  color: #ffffff;
-  font-weight: bold;
-}
 .cricles_wrapper{
   display: inline;
-  padding: 20px;
+  padding: 30px;
   opacity: .5;
 }
 .Scroll_Content_Box{
@@ -260,43 +304,87 @@ body .Scroll-Inner-Titles .circles_title h1{
 
 }
 
-/*-------------------------------------------------------------My-container*/
-.my-container {
-  position: relative;
-  background: #000000;
-  overflow: hidden;
-  /*height: 440px;*/
-  padding-top: 0;
-}
-.my-container .search {
+/*-----------------------------------------------------------------Detail View*/
+.detail_header{
+  background-size: cover;
+  height: 500px;
   text-align: center;
-  z-index: 2;
-  position: relative;
-  padding-top: 20px;
 }
-.my-container .background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  opacity: 0.25;
+.detail_content{
+  padding-top: 100px;
 }
-.my-container:hover .background{
-  opacity: 0.35;
+.detail_logo{
+  height: 300px;
+  width: 300px;
+  border-radius: 150px;
 }
-.my-container .ICON-D{
-  display: none;
+
+
+.detail_nav{
+    background: rgba(226, 24, 24, 0.75);
+    text-align: center;
 }
+.detail_nav ul {
+    list-style-type: none;
+    margin: auto;
+    height: 48px;
+    width: 50%;
+    display: block;
+}
+.detail_nav li {
+    float: left;
+}
+.detail_nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.detail_nav li:hover {
+    background-color: rgba(226, 24, 24, 0.6);
+}\
+.detail_nav li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    background-color: rgba(226, 24, 24, 0.5);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 /*---------------------------------------------------------------search form*/
-.form-container{
+/*.form-container{
   height:50px;
   margin-bottom: 7px;
 }
+#searchBar_Submit{
+  background: #ffffff;
+}
 .searchBar{
   height: 50px;
-  /*width: 45%;*/
+  width: 45%;
   border-radius: 25px;
   border-color: #000000;
   background-color: #474646;
@@ -307,12 +395,19 @@ body .Scroll-Inner-Titles .circles_title h1{
 .searchBar:hover{
   background-color: #2d2d2d;
 }
+.form-container:focus .searchbar{
+  background: #000000;
+}
+.searchBar:focus .tag-scroll-container{
+  background-color: #fff;
+  display: block;
+}
 .search form{
   padding-top: 0px;
 }
 .searchIcon{
   padding-top: 35px;
-}
+}*/
 
 /*----------------------------------------------------------------------tags*/
 .tagbtn{
@@ -327,6 +422,9 @@ body .Scroll-Inner-Titles .circles_title h1{
   border-radius: 8px;
   font-family: 'Oswald', sans-serif;
   font-weight: lighter;
+}
+.tag-scroll-container{
+  /*display: none;*/
 }
 .tag-scroll-container .tag-container{
   overflow: auto;
@@ -414,36 +512,34 @@ margin: 0 auto;
 SECTION 3 - search.html
 ------------------------------------------------------------------------------
 */
-.post-container{
+/*.post-container{
   height: auto;
 }
 .contentItem{
   padding: 10px;
   border-radius: 10px;
 }
-iframe{
+#search_content iframe{
   max-width: 100%;
   height: 350px;
   border: 4px solid #474646;
   border-radius: 25px;
 }
-iframe:hover{
+#search_content iframe:hover{
   border: 2px solid #595959;
   border-radius: 25px;
 }
 @media screen and (max-width: 990px){
-  iframe{
-  }
+  #search_content iframe{
     height: 378px;
     border-radius: 25px;
     border-radius: 25px;
   }
-}
+}*/
 
-/*----------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 SECTION 4 - contact.html/submitted.html
-------------------------------------------------------------------------------
-*/
+-----------------------------------------------------------------------------*/
 .contact-Container h1{
   color: #e21818;
   text-align: left;
@@ -451,50 +547,67 @@ SECTION 4 - contact.html/submitted.html
 .contact-Container h2{
   color: #ffffff;
 }
+
 .contact-Container{
-    border-top: 1px solid #afafaf;
-    padding-bottom: 5%;
-    text-align: center;
-    padding-left: 20%;
-    padding-right: 20%;
+  border-top: 1px solid #afafaf;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
 }
 .contactCall{
   padding-top: 3%;
 }
-form p{
+.contact-Container form p{
   color: #000000;
   border-radius: 25px;
 }
-form label{
+.contact-Container form label{
   color: #ffffff;
   display: block;
 }
-form button{
+.contact-Container form button{
   visibility: visible;
-  color: #000;
+  color: #ffffff;
   margin-left: 3px;
   margin-right: 3px;
-  background-color: #fff;
+  background-color: #e21818;
   padding: 8px;
   border: none;
   border-radius: 8px;
   font-family: 'Oswald', sans-serif;
   font-weight: lighter;
+  width: 16%;
 }
-form input{
+.contact-Container form input{
+  width: 20%;
+  border-radius: 20px;
+  text-align: center;
+  background: #474646;
+  border-color: #000000;
+}
+.contact-Container form textarea{
   width: 60%;
   border-radius: 20px;
   text-align: center;
   background: #474646;
   border-color: #000000;
 }
-form textarea{
-  width: 60%;
-  border-radius: 20px;
-  text-align: center;
-  background: #474646;
-  border-color: #000000;
+@media screen and (max-width: 990px){
+  .contact-Container{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .contact-Container form textarea{
+    width: 90%;
+  }
+  .contact-Container form input{
+    width: 90%;
+  }
+  .contact-Container form button{
+    width: 24%;
+  }
 }
+
 
 /*----------------------------------------------------------------------------
 SECTION 5 - terms.html

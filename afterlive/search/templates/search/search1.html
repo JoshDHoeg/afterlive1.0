@@ -1,0 +1,75 @@
+{% extends "home/footer1.html" %}
+{% block content %}
+{% load static %}
+<div class="my-container">
+
+  <div class="search container">
+    <img src="{% static 'home/images/join.png' %}" alt="SearchAgain" class="center-block" height="300px">
+
+    <!-- <div class="tag-scroll-container" id="tgc">
+      <div class="pull-left move-icon" id="left"><span class="glyphicon glyphicon-triangle-left"></span></div>
+      <div class="pull-right move-icon" id="right"><span class="glyphicon glyphicon-triangle-right"></span></div>
+      <div class="tag-container container center-block">
+
+        <div class="tags" id="myDiv">
+
+            <script>
+
+            var tagbtn = document.createElement("BUTTON");
+            console.log("object name: " + "{{ link.Background }}");
+            var t = document.createTextNode("{{ link.name }}");
+            tagbtn.id = "{{ link.name }}";
+            tagbtn.className = "tagbtn";
+            tagbtn.appendChild(t);
+            document.getElementById("myDiv").appendChild(tagbtn);
+            </script>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+{% for obj in object_list %}
+<div id="search_content">
+<script>
+  console.log("{{ obj.ContentLink }}" + "  1");
+
+  var CC = document.createElement("div");
+  var contentItem = document.createElement("iframe");
+  contentItem.src = "{{ obj.ContentLink }}";
+  contentItem.width="320px";
+  contentItem.height="260px";
+  contentItem.setAttribute('allowFullScreen', 'true');
+  contentItem.className="contentItem";
+  contentItem.scrolling="no";
+  contentItem.allowtransparency="true";
+  contentItem.id = "{{ obj.id }}";
+  CC.appendChild(contentItem);
+  CC.id = "{{ obj.id }}" + "a";
+  CC.className =" highlightItem"
+
+
+  document.getElementById('search_content').appendChild(CC);
+
+</script>
+<p>{{ item.Source }}</h1>
+</div>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "home/footer1.html" %}
+{% load static %}
+{% block content %}
+<div class="search container">
+  <img src="{% static 'home/images/join.png' %}" alt="SearchAgain" class="center-block" height="300px">
+  <div class="form-container container">
+    <form class="center searchForm" name="myForm" autocomplete="off" method="GET" action="/search/">
+      <input id="searchBar" name="q" type="text" class=" col-xs-12 searchBar" placeholder="Search for your favorite set..." style="opacity:1 !important" />
+      <input id="searchBar_Sumbit" type="submit" value="Search" />
+    </form>
+  </div>
+  <!-- <div class="tag-scroll-container" id="tgc">
+    <div class="pull-left move-icon" id="left"><span class="glyphicon glyphicon-triangle-left"></span></div>
+    <div class="pull-right move-icon" id="right"><span class="glyphicon glyphicon-triangle-right"></span></div>
+    <div class="tag-container container center-block">
+
+      <div class="tags" id="myDiv">
+
+          <script>
+
+          var tagbtn = document.createElement("BUTTON");
+          console.log("object name: " + "{{ link.Background }}");
+          var t = document.createTextNode("{{ link.name }}");
+          tagbtn.id = "{{ link.name }}";
+          tagbtn.className = "tagbtn";
+          tagbtn.appendChild(t);
+          document.getElementById("myDiv").appendChild(tagbtn);
+          </script>
+      </div>
+    </div>
+  </div> -->
+</div>
+</div>
+
+<div class="Scroll" id="360_scroll">
+  <h1 class="Scroll_title">The Highlight Reel</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="highlights" class="container Scroll-Inner-Circles">
+      <script>
+          {% for obj in highlight_list %}
+            console.log("{{ obj.ContentLink }}" + "  1");
+
+            var CC = document.createElement("div");
+            var contentItem = document.createElement("iframe");
+            contentItem.src = "{{ obj.ContentLink }}";
+            contentItem.width="320px";
+            contentItem.height="260px";
+            contentItem.setAttribute('allowFullScreen', 'true');
+            contentItem.className="highlightItem-iframe";
+            contentItem.scrolling="no";
+            contentItem.allowtransparency="true";
+            contentItem.id = "{{ obj.id }}";
+            CC.appendChild(contentItem);
+            CC.id = "{{ obj.id }}" + "a";
+            CC.className =" highlightItem"
+
+
+            document.getElementById('highlights').appendChild(CC);
+
+
+            // makeCircle("360-append", "360-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+
+          {% endfor %}
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

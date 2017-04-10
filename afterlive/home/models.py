@@ -51,6 +51,7 @@ class Festival(models.Model):
 
 class Artist(models.Model):
     Name = models.CharField(max_length=140, primary_key=True)
+    profile = models.TextField(blank=True, null=True)
     Background = models.TextField(blank=True, null=True)
     City = models.CharField(max_length=140, blank=True, null=True)
     Country = models.CharField(max_length=140, blank=True, null=True)
