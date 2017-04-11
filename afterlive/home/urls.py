@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.views.generic import TemplateView
-# from home.models import Link
-# from home.views import home_view
+from . import views
 
 urlpatterns = [
-    # url(r'^$', home_view.as_view()),
-    url(r'^$', TemplateView.as_view(template_name="home/main.html"))
+    url(r'^$', views.main_page),
 ]

@@ -1,4 +1,4 @@
-{% extends "home/footer1.html" %}
+{% extends "home/footer.html" %}
 {% load static %}
 {% block content %}
 
@@ -8,8 +8,10 @@
     <div class="col-md-4 container"><img class="detail_logo" src="{{ a.Logo }}"></div>
   </div>
 </div>
+
+
 <div class="detail_nav">
-  <ul class="center">
+  <ul class="center detail_catagories col-md-6">
     <li><a href="#">AfterMovies</a></li>
     <li class="dropdown">
       <a href="#" class="dropbtn">Artists</a>
@@ -44,43 +46,211 @@
       </div>
     </li>
   </ul>
+
+  <ul class="detail_socials " id="detail_socials">
+    <script>
+    var position = 0;
+    var detail_socials = document.getElementById('detail_socials');
+    while(position < 6){
+      position += 1;
+      if("{{ a.LinkID.Facebook }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_facebook_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Facebook }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Facebook");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Instagram }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_instagram_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Instagram }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Instagram");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Youtube }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_youtube_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Youtube }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Youtube");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Twitter }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_twitter_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Twitter }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Twitter");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Tumblr }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_tumblr_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Tumblr }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "tumblr");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Soundcloud }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\soundcloud1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_soundcloud_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Soundcloud }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Soundcloud");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Pinterest }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\pinterest1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_pinterest_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Pinterest }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Pinterest");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+      if("{{ a.LinkID.Website }}" != ""){
+        console.log("dude");
+        var icon = document.createElement("IMG");
+        icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}");
+        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_website_icon");
+
+        var icon_link = document.createElement("A");
+        icon_link.setAttribute("href", "{{ a.LinkID.Website }}")
+        icon_link.setAttribute("class", "social");
+        icon_link.appendChild(icon);
+
+        var icon_div = document.createElement("li");
+        icon_div.setAttribute("id", "Website");
+        icon_div.setAttribute("class", "pos" + position);
+        icon_div.appendChild(icon_link);
+
+        detail_socials.appendChild(icon_div);
+        position += 1;
+      }
+
+    }
+    </script>
+  </ul>
 </div>
 
-<div id="detail_container">
+<div id="detail_container" class="container">
 </div>
 <script>
   {% for post in content_list %}
       var CC = document.createElement("div");
       var contentItem = document.createElement("iframe");
-      contentItem.src = "{{ post.ContentLink }}";
+      if("{{ post.Source }}" == "youtube"){
+        contentItem.src = "{{ post.ContentLink }}";
+      }else{
+        contentItem.src = "{{ post.ContentLink }}" + "embed";
+      }
       contentItem.width="320px";
       contentItem.height="260px";
       contentItem.setAttribute('allowFullScreen', 'true');
-      contentItem.className="highlightItem-iframe";
+      contentItem.className="contentItem-iframe center-block";
       contentItem.scrolling="no";
       contentItem.allowtransparency="true";
       contentItem.id = "{{ post.id }}";
       CC.appendChild(contentItem);
       CC.id = "{{ post.id }}" + "a";
-      CC.className =" highlightItem"
+      CC.className ="col-sm-6 col-md-4 contentItem"
 
 
       document.getElementById('detail_container').appendChild(CC);
   {% endfor %}
 </script>
 
-<div class="pagination">
+
+<div class="pagination container center-block">
     <span class="step-links">
         {% if content_list.has_previous %}
-            <a href="?page={{ content_list.previous_page_number }}">previous</a>
+              <a href="?page={{ content_list.previous_page_number }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
         {% endif %}
 
         <span class="current">
-            Page {{ content_list.number }} of {{ content_list.paginator.num_pages }}.
+            Page {{ content_list.number }} of {{ content_list.paginator.num_pages }}
         </span>
 
         {% if content_list.has_next %}
-            <a href="?page={{ content_list.next_page_number }}">next</a>
+            <a href="?page={{ content_list.next_page_number }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
         {% endif %}
     </span>
 </div>

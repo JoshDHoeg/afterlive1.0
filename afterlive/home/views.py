@@ -1,16 +1,16 @@
-# from django.views.generic import ListView
-# from home.models import *
-# from functools import reduce
-# from operator import and_, or_
-#
-# class home_view(ListView):
-#     model = Festival
-#     template_name = "home/main.html"
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
+from django.shortcuts import render
+from home.models import *
+from functools import reduce
+from operator import and_, or_
 
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(home_view, self).get_context_data(**kwargs)
-    #     context['festival_list'] = Festival.objects.all().select_related("LinkID")
-    #     context['photographer_list'] = Photographer.objects.all().select_related("LinkID")
-    #     context['highlight_list'] = Content.objects.filter(ContentType="Highlight")
-    #     return context
+def main_page(request):
+    highlight_list = Content.objects.filter(ContentType="Highlight")
+
+    context= {
+        "highlight_list": highlight_list,
+    }
+
+    return render(request, "home/main.html", context)

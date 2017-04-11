@@ -1,38 +1,19 @@
-{% extends "home/footer1.html" %}
+{% extends "home/footer.html" %}
 {% load static %}
 {% block content %}
-<div class="search container">
-  <img src="{% static 'home/images/join.png' %}" alt="SearchAgain" class="center-block" height="300px">
-  <div class="form-container container">
-    <form class="center searchForm" name="myForm" autocomplete="off" method="GET" action="/search/">
-      <input id="searchBar" name="q" type="text" class=" col-xs-12 searchBar" placeholder="Search for your favorite set..." style="opacity:1 !important" />
-      <input id="searchBar_Sumbit" type="submit" value="Search" />
-    </form>
-  </div>
-  <!-- <div class="tag-scroll-container" id="tgc">
-    <div class="pull-left move-icon" id="left"><span class="glyphicon glyphicon-triangle-left"></span></div>
-    <div class="pull-right move-icon" id="right"><span class="glyphicon glyphicon-triangle-right"></span></div>
-    <div class="tag-container container center-block">
-
-      <div class="tags" id="myDiv">
-
-          <script>
-
-          var tagbtn = document.createElement("BUTTON");
-          console.log("object name: " + "{{ link.Background }}");
-          var t = document.createTextNode("{{ link.name }}");
-          tagbtn.id = "{{ link.name }}";
-          tagbtn.className = "tagbtn";
-          tagbtn.appendChild(t);
-          document.getElementById("myDiv").appendChild(tagbtn);
-          </script>
-      </div>
+<div class="container-fluid" id="search_wrapper">
+  <div class="search container">
+    <img src="{% static 'home/images/join.png' %}" alt="SearchAgain" class="center-block" height="300px">
+    <div class="form-container container search-form" id="mainsearch">
+      <form class="center searchForm" name="myForm" autocomplete="off" method="GET" action="/search/">
+        <input id="searchBar" name="q" type="text" class=" col-xs-12 searchBar" placeholder="Search for your favorite set..." style="opacity:1 !important" />
+        <button id="searchBar_Submit" type="submit" ><img  class="center-block" src="{% static 'home/images/search.png' %}" height="40px"></button>
+      </form>
     </div>
-  </div> -->
-</div>
+  </div>
 </div>
 
-<div class="Scroll" id="360_scroll">
+<div class="Scroll" id="scroll_360">
   <h1 class="Scroll_title">The Highlight Reel</h1>
   <div class="Scroll-Outer center-block">
     <div class="Scroll-Inner">
@@ -66,5 +47,22 @@
       </div>
     </div>
   </div>
+</div>
+
+<!--The email signup-->
+<link rel="stylesheet" href="{% static 'home/css/mcemail.css' %}" type="text/css"/>
+<div id="mc_embed_signup" class="container">
+  <form action="//live.us15.list-manage.com/subscribe/post?u=8a6b69ff560c12d6e8efd5268&amp;id=7edc17f62d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+          <label for="mce-EMAIL">EARLY ADOPTER?</label>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_8a6b69ff560c12d6e8efd5268_7edc17f62d" tabindex="-1" value="">
+        </div>
+        <div class="clear">
+          <input type="submit" value="JOIN THE FAMILY" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+  </form>
 </div>
 {% endblock %}

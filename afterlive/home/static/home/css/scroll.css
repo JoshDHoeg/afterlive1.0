@@ -4,11 +4,11 @@
   margin-top: 30px;
   padding: 20px;
   width: 85%;
-    max-height: 300px;
+  max-height: 300px;
 }
 body .Festival-Scroll-Inner{
   max-height: 300px;
-  width: 1900px;
+  width: 4900px;
   overflow: auto;
 }
 .cricles_wrapper{

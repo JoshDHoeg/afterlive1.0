@@ -46,6 +46,7 @@
     ::-webkit-scrollbar{height: 6px;width: 6px;margin: 0;}
     ::-webkit-scrollbar-track{background: #474646;}
     ::-webkit-scrollbar-thumb{background: #e21818;}
+
     a:link {text-decoration: none; color: #ffffff;}
     a:visited {text-decoration: none; color: #ffffff;}
     a:hover {text-decoration: none; color: #ffffff; font-weight: bold;}
@@ -68,14 +69,8 @@
           <div class="ICON ICON-A"><a href="https://www.facebook.com/afterlivemedia/"><img class="center-block" src="{% static 'home/images/SocialMedia/Facebook.png' %}" height="40px"></a></div>
           <div class="ICON ICON-A"><a href="https://www.instagram.com/afterlivemedia/?hl=en"><img class="center-block" src="{% static 'home/images/SocialMedia/Instagram.png' %}" height="40px"></a></div>
           <div class="ICON ICON-A"><a href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ"><img class="center-block" src="{% static 'home/images/SocialMedia/Youtube.png' %}" height="40px"></a></div>
-          <!-- <div class="ICON" id="searchbtn"><a href="/search/"><img  class="center-block" src="{% static 'home/images/search.png' %}" height="40px"></a></div> -->
+          <div class="ICON" id="searchbtn"><a href="/search/"><img  class="center-block" src="{% static 'home/images/search.png' %}" height="40px"></a></div>
         </div>
-      </div>
-      <div class="form-container container form-inline search-form" id="searchwidget">
-        <form class="center searchForm" name="myForm" autocomplete="off" method="GET" action="/search/">
-          <input id="searchBar" name="q" type="text" class=" col-xs-12 searchBar widget_searchBar" placeholder="Search for your favorite set..." />
-          <button id="searchBar_Submit" type="submit"><img  class="center-block widget_searchBar_Submit" src="{% static 'home/images/search.png' %}" height="40px"></button>
-        </form>
       </div>
     </div>
 

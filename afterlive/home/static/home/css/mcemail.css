@@ -46,6 +46,7 @@ unnecessary but I have not gone through and gotten ride of the waste yet
   font-size:40px;
   padding-bottom:10px;
   font-weight:bold;
+  color: #ffffff !important;
 }
 #mc_embed_signup .clear {
   display: block;
