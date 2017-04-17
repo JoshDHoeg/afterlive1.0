@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.http import HttpResponse
 from home.models import *
@@ -6,7 +7,7 @@ def artist_view(request, Experiences_name=None):
     a_list = Artist.objects.get(Name = Experiences_name)
     content_list = Content.objects.all()
 
-    paginator = Paginator(queryset_list, 6)
+    paginator = Paginator(content_list, 6)
     page = request.GET.get('page')
     try:
         c_list = paginator.page(page)

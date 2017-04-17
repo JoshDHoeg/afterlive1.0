@@ -253,6 +253,7 @@ Main Page Styling
   margin-top: 8px;
   max-width: 100%;
   border: 4px solid rgba(0,0,0,0);
+  border-radius: 25px;
 }
 #highlights iframe:hover{
   border: 2px solid rgba(0,0,0,0);
@@ -264,7 +265,6 @@ Main Page Styling
 @media screen and (max-width: 990px){
   #highlights iframe{
     height: 240px;
-    border-radius: 25px;
     border-radius: 25px;
   }
 }
