@@ -20,20 +20,24 @@
       <div id="highlights" class="container Scroll-Inner-Circles">
       <script>
           {% for obj in highlight_list %}
-            console.log("{{ obj.ContentLink }}" + "  1");
+            console.log("{{ obj.content_type }}" + "  1");
 
             var CC = document.createElement("div");
             var contentItem = document.createElement("iframe");
-            contentItem.src = "{{ obj.ContentLink }}";
+            if("{{ obj.origin }}" == "youtube"){
+              contentItem.src = "{{ obj.content_value }}";
+            }else{
+              contentItem.src = "{{ obj.content_value }}" + "embed";
+            }
             contentItem.width="320px";
             contentItem.height="260px";
             contentItem.setAttribute('allowFullScreen', 'true');
             contentItem.className="highlightItem-iframe";
             contentItem.scrolling="no";
             contentItem.allowtransparency="true";
-            contentItem.id = "{{ obj.id }}";
+            contentItem.id = "{{ obj.content_id }}";
             CC.appendChild(contentItem);
-            CC.id = "{{ obj.id }}" + "a";
+            CC.id = "{{ obj.content_id }}" + "a";
             CC.className =" highlightItem"
 
 

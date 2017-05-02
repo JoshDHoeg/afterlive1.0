@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'afterlive.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'afterlivedb',
+        'NAME': 'mydb',
         'USER': 'root',
         'PASSWORD': 'Js14d2h5o7u9e0',
         'HOST': 'localhost',

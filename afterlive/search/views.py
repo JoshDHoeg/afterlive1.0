@@ -13,9 +13,9 @@ def content_search(request):
 
     query = request.GET.get("q")
     if query:
-        f_list = f_list.filter(Name__icontains=query)
-        a_list = a_list.filter(Name__icontains=query)
-        p_list = p_list.filter(Name__icontains=query)
+        f_list = f_list.filter(name__icontains=query)
+        a_list = a_list.filter(name__icontains=query)
+        p_list = p_list.filter(name__icontains=query)
 
     # paginator = Paginator(queryset_list, 6)
     # page = request.GET.get('page')
@@ -27,6 +27,9 @@ def content_search(request):
     # except EmptyPage:
     #     # If page is out of range (e.g. 9999), deliver last page of results.
     #     queryset = paginator.page(paginator.num_pages)
+    f_list = f_list[:16]
+    a_list = a_list[:16]
+    p_list = p_list[:16]
     context= {
     "festival_list": f_list,
     "artist_list": a_list,

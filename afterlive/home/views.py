@@ -7,7 +7,7 @@ from operator import and_, or_
 
 
 def main_page(request):
-    highlight_list = Content.objects.filter(ContentType="Highlight")
+    highlight_list = Content.objects.filter(content_type = 5)[:16]
 
     context= {
         "highlight_list": highlight_list,

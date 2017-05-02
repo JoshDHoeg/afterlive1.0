@@ -4,10 +4,13 @@ from django.http import HttpResponse
 from home.models import *
 
 def festival_view(request, Experiences_name=None):
-    a_list = Festival.objects.get(Name = Experiences_name)
-    content_list = Content.objects.all()
+    a_list = Festival.objects.get(name = Experiences_name)
+    content_list = Content.objects.filter(content_festival = a_list.festival_id)
 
-    paginator = Paginator(content_list, 6)
+    artist_list = Festival_Artist.objects.filter(fl = a_list.festival_id).order_by('a')
+    photographer_list = Festival_Photographer.objects.filter(festival_festival = a_list.festival_id)
+
+    paginator = Paginator(content_list, 12)
     page = request.GET.get('page')
     try:
         c_list = paginator.page(page)
@@ -21,7 +24,8 @@ def festival_view(request, Experiences_name=None):
     context = {
         "title" : "dude",
         "a" : a_list,
-        "content_list": c_list
+        "content_list": c_list,
+        "artist_list": artist_list
     }
 
     return render(request,  'festival/festival.html', context)

@@ -31,7 +31,8 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
 
   while(position < 6){
     position += 1;
-    if(facebook != ""){
+    console.log(facebook);
+    if(facebook != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}")
 
@@ -51,7 +52,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(instagram != ""){
+    if(instagram != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}")
 
@@ -71,7 +72,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(youtube != ""){
+    if(youtube != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}")
 
@@ -91,7 +92,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(twitter != ""){
+    if(twitter != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}")
 
@@ -111,7 +112,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(tumblr != ""){
+    if(tumblr != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}")
 
@@ -131,7 +132,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(soundcloud != ""){
+    if(soundcloud != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\Soundcloud1.png' %}")
 
@@ -171,7 +172,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       festivalbtn.appendChild(icon_div);
       position += 1;
     }
-    if(website != ""){
+    if(website != "None"){
       var icon = document.createElement("IMG");
       icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}")
 
@@ -210,8 +211,8 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       <script>
 
         	{% for link in festival_list %}
-              console.log("{{ link.Background }}" + "  1");
-              makeCircle("festival", "festival-append", "festival-title-append", "{{ link.Logo }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+              console.log("{{ link.festival_account.background }}" + "  1");
+              makeCircle("festival", "festival-append", "festival-title-append", "{{ link.festival_account.background }}", "{{ link.name }}", "{{ link.festival_account.account_link.facebook }}", "{{ link.festival_account.account_link.instagram }}", "{{ link.festival_account.account_link.youtube }}", "{{ link.festival_account.account_link.twitter }}", "{{ link.festival_account.account_link.tumblr }}", "{{ link.festival_account.account_link.soundcloud }}", "{{ link.festival_account.account_link.pinterest }}", "{{ link.festival_account.account_link.website }}");
 
         	{% endfor %}
         </script>
@@ -228,7 +229,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       <script>
         	{% for link in photographer_list %}
 
-            makeCircle("photographer", "photographer-append", "photographer-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+            makeCircle("photographer", "photographer-append", "photographer-title-append", "{{ link.photographer_account.background }}", "{{ link.name }}", "{{ link.photographer_account.account_link.facebook }}", "{{ link.photographer_account.account_link.instagram }}", "{{ link.photographer_account.account_link.youtube }}", "{{ link.photographer_account.account_link.twitter }}", "{{ link.photographer_account.account_link.tumblr }}", "{{ link.photographer_account.account_link.soundcloud }}", "{{ link.photographer_account.account_link.pinterest }}", "{{ link.photographer_account.account_link.website }}");
 
         	{% endfor %}
         </script>
@@ -246,7 +247,7 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
       <script>
         	{% for link in artist_list %}
 
-            makeCircle("artist", "artist-append", "artist-title-append", "{{ link.Background }}", "{{ link.Name }}", "{{ link.LinkID.Facebook }}", "{{ link.LinkID.Instagram }}", "{{ link.LinkID.Youtube }}", "{{ link.LinkID.Twitter }}", "{{ link.LinkID.Tumblr }}", "{{ link.LinkID.Soundcloud }}", "{{ link.LinkID.Pinterest }}", "{{ link.LinkID.Website }}");
+            makeCircle("artist", "artist-append", "artist-title-append", "{{ link.artist_account.background }}", "{{ link.name }}", "{{ link.artist_account.account_link.facebook }}", "{{ link.artist_account.account_link.instagram }}", "{{ link.artist_account.account_link.youtube }}", "{{ link.artist_account.account_link.twitter }}", "{{ link.artist_account.account_link.tumblr }}", "{{ link.artist_account.account_link.soundcloud }}", "{{ link.artist_account.account_link.pinterest }}", "{{ link.artist_account.account_link.website }}");
 
         	{% endfor %}
         </script>
