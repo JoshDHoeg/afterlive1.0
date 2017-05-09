@@ -51,7 +51,7 @@ html body{
 }
 @media screen and (max-width: 624px){
   html .inner-body{
-    padding-top: 129px;
+    padding-top: 150px;
   }
 }
 h1{
@@ -128,7 +128,7 @@ body .header{
     float: none;
   }
   .header .ICON{
-    display:inline-block;;
+    display:inline-block;
     float:none;
   }
   .header .ICON-C{
@@ -221,6 +221,14 @@ Main Page Styling
   float: right;
   margin-top: 10px;
 }
+@media screen and (max-width: 624px){
+  #searchwidget{
+    width: 100%;
+    float: none;
+    margin: auto;
+  }
+
+}
 #searchwidget .searchBar{width: 85%; height: 40px;}
 #searchwidget #searchBar_Submit{width: 15%; height: 40px; }
 
@@ -269,8 +277,29 @@ Main Page Styling
   }
 }
 
+/*------------------------------------------------------------mission_wrapper*/
+#mission_wrapper{
+  padding: 0;
+  margin: 0;
+  background-image: url("mission.png");
+  background-size: cover;
+}
 
-
+@media screen and (max-width: 500px){
+  #mission{
+    padding-top: 200px !important;
+  }
+}
+@media screen and (max-width: 980px){
+  #mission{
+    padding-top: 300px;
+  }
+}
+@media screen and (min-width: 980px){
+  #mission{
+    padding-top: 600px;
+  }
+}
 
 /*-----------------------------------------------------------------------------
 SECTION 3 - we made it to search.html
@@ -336,7 +365,7 @@ body .Scroll-Inner-Circles{
 
 }
 
-/*-----------------------------------------------------------------Detail View*/
+/*-----------------------------------------------------------------Detail nav*/
 .detail_header{
   background-size: cover;
   height: 500px;
@@ -349,6 +378,7 @@ body .Scroll-Inner-Circles{
   height: 300px;
   width: 300px;
   border-radius: 150px;
+  padding: 0;
 }
 
 
@@ -369,7 +399,7 @@ body .Scroll-Inner-Circles{
     display: block;
     color: white;
     text-align: center;
-    padding: 10px 12px;
+    padding: 10px 8px;
     text-decoration: none;
     font-size: 23px;
 }
@@ -378,6 +408,10 @@ body .Scroll-Inner-Circles{
 }
 .detail_nav li.dropdown {
     display: inline-block;
+}
+.detail_nav .dropdown-content a{
+  font-size: 16px;
+  padding: 6px;
 }
 .dropdown-content {
     display: none;
@@ -415,6 +449,15 @@ body .Scroll-Inner-Circles{
 #detail_container{
   padding-top: 20px;
 }
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------------Detail content*/
 .contentItem{
   padding: 10px;
 }
@@ -518,9 +561,6 @@ margin: 0 auto;
 }
 /*------------------------------------------------------------------media css*/
 @media screen  and (max-width: 624px){
-  .inner-body{
-    padding-top: 60px;
-  }
   .searchIcon-container{
     display: none;
   }

@@ -15,8 +15,8 @@ class Account(models.Model):
     username = models.CharField(db_column='Username', unique=True, max_length=20, blank=True, null=True)  # Field name made lowercase.
     password = models.CharField(db_column='Password', max_length=40, blank=True, null=True)  # Field name made lowercase.
     email = models.CharField(db_column='Email', max_length=256, blank=True, null=True)  # Field name made lowercase.
-    background = models.TextField(db_column='Background', blank=True, null=True)  # Field name made lowercase.
-    profile = models.TextField(db_column='Profile', blank=True, null=True)  # Field name made lowercase.
+    background = models.FileField(db_column='Background', default='settings.MEDIA_ROOT/background_default.jpg')  # Field name made lowercase.
+    profile = models.FileField(db_column='Profile', default='settings.MEDIA_ROOT/profile_default.jpg')  # Field name made lowercase.
     bio = models.TextField(db_column='Bio', blank=True, null=True)  # Field name made lowercase.
     account_link = models.ForeignKey('Link', models.DO_NOTHING, db_column='Account_Link_ID', blank=True, null=True)  # Field name made lowercase.
 

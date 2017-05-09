@@ -3,211 +3,231 @@
 {% block content %}
 
 
-<div class="detail_header container-fluid" style="background-image: url('{{ a.Background }}')">
+<div class="detail_header container-fluid" style="background-image: url('{{ f.artist_account.background.url }}')">
   <div class="detail_content container">
-    <div class="col-md-4 container"><img class="detail_logo" src="{{ a.Logo }}"></div>
+    <div class="col-md-4 container"><a href="http://127.0.0.1:8000/artist/{{ f.name }}"><img class="detail_logo" src="{{ f.artist_account.profile.url }}"></a></div>
   </div>
 </div>
 
 
 <div class="detail_nav">
   <ul class="center detail_catagories col-md-6">
-    <li><a href="#">AfterMovies</a></li>
     <li class="dropdown">
-      <a href="#" class="dropbtn">Artists</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+      <a href="#" class="dropbtn">Festivals</a>
+      <div class="dropdown-content" id="festival_artist">
+        <script>
+        {% for festival in festival_list %}
+          var artist_tag = document.createElement("a");
+          artist_tag.innerHTML = artist_tag.innerHTML + "{{ festival.fl.name }}";
+          artist_tag.setAttribute("href", "http://127.0.0.1:8000/artist/{{ f.name }}/Festival/{{ festival.fl.name }}/");
+          var menu = document.getElementById("festival_artist");
+          menu.appendChild(artist_tag);
+        {% endfor %}
+        </script>
+        <a href="http://127.0.0.1:8000/contact/">Did we miss someone?</a>
       </div>
     </li>
     <li class="dropdown">
-      <a href="#" class="dropbtn">Culture</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="#" class="dropbtn">People</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+      <a href="#" class="dropbtn">Media</a>
+      <div class="dropdown-content" id="type_dropdown">
+        <script>
+        {% for type in type_list %}
+          var type_tag = document.createElement("a");
+          type_tag.innerHTML = type_tag.innerHTML + "{{ type.content_type }}";
+          type_tag.setAttribute("href", "http://127.0.0.1:8000/artist/{{ f.name }}/Type/{{ type.content_type }}/");
+          var menu = document.getElementById("type_dropdown");
+          menu.appendChild(type_tag);
+        {% endfor %}
+        </script>
+        <a href="http://127.0.0.1:8000/contact/">Did we miss something?</a>
       </div>
     </li>
     <li class="dropdown">
       <a href="#" class="dropbtn">Photographers</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+      <div class="dropdown-content" id="festival_photographer">
+        <a href="http://127.0.0.1:8000/contact/">Did You shoot for this festival???</a>
       </div>
+      <script>
+      {% for photographer in photographer_list %}
+        var photographer_name = document.createElement("a");
+        photographer_name.innerHTML = artist_tag.innerHTML + "{{ photographer.a.name }}";
+        photographer_name.setAttribute("href", "http://127.0.0.1:8000/artist/{{ f.name }}/Photographer/{{ photographer.tag }}/");
+        var menu = document.getElementById("festival_photographer");
+        menu.appendChild(photographer_name);
+      {% endfor %}
+      </script>
     </li>
   </ul>
 
-  <ul class="detail_socials " id="detail_socials">
-    <script>
-    var position = 0;
-    var detail_socials = document.getElementById('detail_socials');
-    while(position < 6){
+<ul class="detail_socials " id="detail_socials">
+  <script>
+  var position = 0;
+  var detail_socials = document.getElementById('detail_socials');
+  while(position < 6){
+    position += 1;
+    if("{{ f.artist_account.account_link.facebook }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/facebook1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_facebook_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{ f.artist_account.account_link.facebook }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Facebook");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
       position += 1;
-      if("{{ a.LinkID.Facebook }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\facebook1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_facebook_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Facebook }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Facebook");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Instagram }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\instagram1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_instagram_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Instagram }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Instagram");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Youtube }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\youtube1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_youtube_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Youtube }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Youtube");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Twitter }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\twitter1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_twitter_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Twitter }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Twitter");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Tumblr }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\tumblr1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_tumblr_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Tumblr }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "tumblr");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Soundcloud }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\soundcloud1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_soundcloud_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Soundcloud }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Soundcloud");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Pinterest }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\pinterest1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_pinterest_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Pinterest }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Pinterest");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-      if("{{ a.LinkID.Website }}" != ""){
-        console.log("dude");
-        var icon = document.createElement("IMG");
-        icon.setAttribute("src", "{% static '\home\images\SocialMedia\rss1.png' %}");
-        icon.setAttribute("alt", "{{ a.Name }}" + "_festival_website_icon");
-
-        var icon_link = document.createElement("A");
-        icon_link.setAttribute("href", "{{ a.LinkID.Website }}")
-        icon_link.setAttribute("class", "social");
-        icon_link.appendChild(icon);
-
-        var icon_div = document.createElement("li");
-        icon_div.setAttribute("id", "Website");
-        icon_div.setAttribute("class", "pos" + position);
-        icon_div.appendChild(icon_link);
-
-        detail_socials.appendChild(icon_div);
-        position += 1;
-      }
-
     }
-    </script>
+    if("{{  f.artist_account.account_link.instagram }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/instagram1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_instagram_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.instagram }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Instagram");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.youtube }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/youtube1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_youtube_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.youtube }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Youtube");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.twitter }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/twitter1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_twitter_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.twitter }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Twitter");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.tumblr }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/tumblr1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_tumblr_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.tumblr }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "tumblr");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.soundcloud }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/soundcloud1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_soundcloud_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.soundcloud }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Soundcloud");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.pinterest }}" != ""){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/pinterest1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_pinterest_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.pinterest }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Pinterest");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    if("{{  f.artist_account.account_link.website }}" != "None"){
+      var icon = document.createElement("IMG");
+      icon.setAttribute("src", "{% static 'home/images/SocialMedia/rss1.png' %}");
+      icon.setAttribute("alt", "{{ f.name }}" + "_artist_website_icon");
+
+
+      var icon_link = document.createElement("A");
+      icon_link.setAttribute("href", "{{  f.artist_account.account_link.website }}")
+      icon_link.setAttribute("class", "social");
+      icon_link.setAttribute("target", "_blank");
+      icon_link.appendChild(icon);
+
+      var icon_div = document.createElement("li");
+      icon_div.setAttribute("id", "Website");
+      icon_div.setAttribute("class", "pos" + position);
+      icon_div.appendChild(icon_link);
+
+      detail_socials.appendChild(icon_div);
+      position += 1;
+    }
+    position = 6;
+  }
+  </script>
   </ul>
 </div>
 
@@ -217,10 +237,10 @@
   {% for post in content_list %}
       var CC = document.createElement("div");
       var contentItem = document.createElement("iframe");
-      if("{{ post.Source }}" == "youtube"){
-        contentItem.src = "{{ post.ContentLink }}";
+      if("{{ post.origin }}" == "Youtube"){
+        contentItem.src = "{{ post.content_value }}";
       }else{
-        contentItem.src = "{{ post.ContentLink }}" + "embed";
+        contentItem.src = "{{ post.content_value }}" + "embed";
       }
       contentItem.width="320px";
       contentItem.height="260px";
@@ -228,9 +248,9 @@
       contentItem.className="contentItem-iframe center-block";
       contentItem.scrolling="no";
       contentItem.allowtransparency="true";
-      contentItem.id = "{{ post.id }}";
+      contentItem.id = "{{ post.content_id }}";
       CC.appendChild(contentItem);
-      CC.id = "{{ post.id }}" + "a";
+      CC.id = "{{ post.content_id }}" + "a";
       CC.className ="col-sm-6 col-md-4 contentItem"
 
 

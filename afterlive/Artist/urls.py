@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.views.generic import TemplateView
 # from home.models import Link
-from Artist.views import artist_view
+from Artist.views import *
 
 urlpatterns = [
     url(r'^$', artist_view),
-    # url(r'^$', TemplateView.as_view(template_name="artist/artist.html")),
     url(r'^(?P<Experiences_name>[\w\s]+)/$', artist_view),
+    url(r'^(?P<Experiences_name>[\w\s]+)/Festival/(?P<Detail_name>[\w\s]+)/$', festival_filter_view),
+    url(r'^(?P<Experiences_name>[\w\s]+)/Type/(?P<Detail_name>[\w\s]+)/$', type_filter_view),
+    url(r'^(?P<Experiences_name>[\w\s]+)/Photographer/(?P<Detail_name>[\w\s]+)/$', photographer_filter_view),
 ]
