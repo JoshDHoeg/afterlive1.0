@@ -11,8 +11,8 @@ def festival_view(request, Experiences_name=None):
     artist_list = Festival_Artist.objects.filter(fl = f_id).order_by('a')
     photographer_list = Festival_Photographer.objects.filter(festival_festival = f_id)
 
-    culture_list = Culture.objects.raw('select distinct Culture.Culture_ID, culture.Tag from Culture join Content WHERE Culture.Culture_ID = Content.Content_Culture_ID AND Content.Content_Festival_ID = %s', [f_id])
-    type_list = Type.objects.raw('select distinct Type.Type_ID, Type.Content_Type from Type join Content WHERE Type.Type_ID = Content.Content_Type_ID AND Content.Content_Festival_ID = %s', [f_id])
+    culture_list = Culture.objects.raw('select distinct culture.Culture_ID, culture.Tag from culture join content WHERE culture.Culture_ID = content.Content_Culture_ID AND content.Content_Festival_ID = %s', [f_id])
+    type_list = Type.objects.raw('select distinct type.Type_ID, type.Content_Type from type join content WHERE type.Type_ID = content.Content_Type_ID AND content.Content_Festival_ID = %s', [f_id])
 
 
     paginator = Paginator(content_list, 12)
@@ -49,8 +49,8 @@ def artist_filter_view(request, Experiences_name=None, Detail_name=None):
     artist_list = Festival_Artist.objects.filter(fl = f_id).order_by('a')
     photographer_list = Festival_Photographer.objects.filter(festival_festival = f_id)
 
-    culture_list = Culture.objects.raw('select distinct Culture.Culture_ID, culture.Tag from Culture join Content WHERE Culture.Culture_ID = Content.Content_Culture_ID AND Content.Content_Festival_ID = %s', [f_id])
-    type_list = Type.objects.raw('select distinct Type.Type_ID, Type.Content_Type from Type join Content WHERE Type.Type_ID = Content.Content_Type_ID AND Content.Content_Festival_ID = %s', [f_id])
+    culture_list = Culture.objects.raw('select distinct culture.Culture_ID, culture.Tag from culture join content WHERE culture.Culture_ID = content.Content_Culture_ID AND content.Content_Festival_ID = %s', [f_id])
+    type_list = Type.objects.raw('select distinct type.Type_ID, type.Content_Type from type join content WHERE type.Type_ID = content.Content_Type_ID AND content.Content_Festival_ID = %s', [f_id])
 
 
     paginator = Paginator(content_list, 12)
@@ -88,8 +88,8 @@ def culture_filter_view(request, Experiences_name=None, Detail_name=None):
     artist_list = Festival_Artist.objects.filter(fl = f_id).order_by('a')
     photographer_list = Festival_Photographer.objects.filter(festival_festival = f_id)
 
-    culture_list = Culture.objects.raw('select distinct Culture.Culture_ID, culture.Tag from Culture join Content WHERE Culture.Culture_ID = Content.Content_Culture_ID AND Content.Content_Festival_ID = %s', [f_id])
-    type_list = Type.objects.raw('select distinct Type.Type_ID, Type.Content_Type from Type join Content WHERE Type.Type_ID = Content.Content_Type_ID AND Content.Content_Festival_ID = %s', [f_id])
+    culture_list = Culture.objects.raw('select distinct culture.Culture_ID, culture.Tag from culture join content WHERE culture.Culture_ID = content.Content_Culture_ID AND content.Content_Festival_ID = %s', [f_id])
+    type_list = Type.objects.raw('select distinct type.Type_ID, type.Content_Type from type join content WHERE type.Type_ID = content.Content_Type_ID AND content.Content_Festival_ID = %s', [f_id])
 
 
     paginator = Paginator(content_list, 12)
@@ -126,8 +126,8 @@ def type_filter_view(request, Experiences_name=None, Detail_name=None):
     artist_list = Festival_Artist.objects.filter(fl = f_id).order_by('a')
     photographer_list = Festival_Photographer.objects.filter(festival_festival = f_id)
 
-    culture_list = Culture.objects.raw('select distinct Culture.Culture_ID, culture.Tag from Culture join Content WHERE Culture.Culture_ID = Content.Content_Culture_ID AND Content.Content_Festival_ID = %s', [f_id])
-    type_list = Type.objects.raw('select distinct Type.Type_ID, Type.Content_Type from Type join Content WHERE Type.Type_ID = Content.Content_Type_ID AND Content.Content_Festival_ID = %s', [f_id])
+    culture_list = Culture.objects.raw('select distinct culture.Culture_ID, culture.Tag from culture join content WHERE culture.Culture_ID = content.Content_Culture_ID AND content.Content_Festival_ID = %s', [f_id])
+    type_list = Type.objects.raw('select distinct type.Type_ID, type.Content_Type from type join content WHERE type.Type_ID = content.Content_Type_ID AND content.Content_Festival_ID = %s', [f_id])
 
 
     paginator = Paginator(content_list, 12)
@@ -164,8 +164,8 @@ def photographer_filter_view(request, Experiences_name=None, Detail_name=None):
     artist_list = Festival_Artist.objects.filter(fl = f_id).order_by('a')
     photographer_list = Festival_Photographer.objects.filter(festival_festival = f_id)
 
-    culture_list = Culture.objects.raw('select distinct Culture.Culture_ID, culture.Tag from Culture join Content WHERE Culture.Culture_ID = Content.Content_Culture_ID AND Content.Content_Festival_ID = %s', [f_id])
-    type_list = Type.objects.raw('select distinct Type.Type_ID, Type.Content_Type from Type join Content WHERE Type.Type_ID = Content.Content_Type_ID AND Content.Content_Festival_ID = %s', [f_id])
+    culture_list = Culture.objects.raw('select distinct culture.Culture_ID, culture.Tag from culture join content WHERE culture.Culture_ID = content.Content_Culture_ID AND content.Content_Festival_ID = %s', [f_id])
+    type_list = Type.objects.raw('select distinct type.Type_ID, type.Content_Type from type join content WHERE type.Type_ID = content.Content_Type_ID AND content.Content_Festival_ID = %s', [f_id])
 
 
     paginator = Paginator(content_list, 12)
