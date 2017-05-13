@@ -227,22 +227,42 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
   </div>
 </div>
 
-<div class="Scroll" id="photographer_scroll">
-  <h1 class="Scroll_title">PHOTOGRAHERS</h1>
+<div class="Scroll" id="scroll_360">
+  <h1 class="Scroll_title">MiddleLands</h1>
   <div class="Scroll-Outer center-block">
     <div class="Scroll-Inner">
-      <div id="photographer-append" class="container Scroll-Inner-Circles">
+      <div id="highlights" class="container Scroll-Inner-Circles">
       <script>
-        	{% for link in photographer_list %}
+          {% for obj in highlight_list %}
+            var CC = document.createElement("div");
+            var contentItem = document.createElement("iframe");
+            if("{{ obj.origin }}" == "youtube"){
+              contentItem.src = "{{ obj.content_value }}";
+            }else{
+              contentItem.src = "{{ obj.content_value }}" + "embed";
+            }
+            contentItem.width="320px";
+            contentItem.height="260px";
+            contentItem.setAttribute('allowFullScreen', 'true');
+            contentItem.className="highlightItem-iframe";
+            contentItem.scrolling="no";
+            contentItem.allowtransparency="true";
+            contentItem.id = "{{ obj.content_id }}";
+            CC.appendChild(contentItem);
+            CC.id = "{{ obj.content_id }}" + "a";
+            CC.className =" highlightItem"
 
-            makeCircle("photographer", "photographer-append", "photographer-title-append", "{{ link.photographer_account.profile.url }}", "{{ link.name }}", "{{ link.photographer_account.account_link.facebook }}", "{{ link.photographer_account.account_link.instagram }}", "{{ link.photographer_account.account_link.youtube }}", "{{ link.photographer_account.account_link.twitter }}", "{{ link.photographer_account.account_link.tumblr }}", "{{ link.photographer_account.account_link.soundcloud }}", "{{ link.photographer_account.account_link.pinterest }}", "{{ link.photographer_account.account_link.website }}");
 
-        	{% endfor %}
+            document.getElementById('highlights').appendChild(CC);
+
+          {% endfor %}
         </script>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <div class="Scroll" id="artist_scroll">
   <h1 class="Scroll_title">ARTISTS</h1>
@@ -261,6 +281,44 @@ function makeCircle(catagory, festivals, titles, Background, Name, facebook, ins
     </div>
   </div>
 </div>
+
+
+
+<div class="Scroll" id="photographer_scroll">
+  <h1 class="Scroll_title">PHOTOGRAHERS</h1>
+  <div class="Scroll-Outer center-block">
+    <div class="Scroll-Inner">
+      <div id="photographer-append" class="container Scroll-Inner-Circles">
+      <script>
+        	{% for link in photographer_list %}
+
+            makeCircle("photographer", "photographer-append", "photographer-title-append", "{{ link.photographer_account.profile.url }}", "{{ link.name }}", "{{ link.photographer_account.account_link.facebook }}", "{{ link.photographer_account.account_link.instagram }}", "{{ link.photographer_account.account_link.youtube }}", "{{ link.photographer_account.account_link.twitter }}", "{{ link.photographer_account.account_link.tumblr }}", "{{ link.photographer_account.account_link.soundcloud }}", "{{ link.photographer_account.account_link.pinterest }}", "{{ link.photographer_account.account_link.website }}");
+
+        	{% endfor %}
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container" id="social_embed">
+    <div class="container col-md-8">
+	<!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/0298ff82c88455439227ef66b3fae8f2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+    </div>
+    <div class="container col-md-4 center-block">
+	<div style="margin:auto; display: block; max-width: 340px;" class="fb-page" data-href="https://www.facebook.com/afterlivemedia/" data-tabs="timeline" data-height="1500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/afterlivemedia/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/afterlivemedia/">After Live</a></blockquote></div>
+   </div>
+</div>
+
 
 <!--The email signup-->
 <link rel="stylesheet" href="{% static 'home/css/mcemail.css' %}" type="text/css"/>

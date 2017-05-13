@@ -10,6 +10,8 @@ def content_search(request):
     f_list = Festival.objects.all().order_by('?')
     a_list = Artist.objects.all().order_by('?')
     p_list = Photographer.objects.all().order_by('?')
+    highlight_list = Content.objects.filter(content_festival = 6)[:16]
+
 
     query = request.GET.get("q")
     if query:
@@ -34,6 +36,7 @@ def content_search(request):
     "festival_list": f_list,
     "artist_list": a_list,
     "photographer_list": p_list,
+    "highlight_list": highlight_list,
     "title": "List"
     }
 
