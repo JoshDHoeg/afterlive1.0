@@ -67,6 +67,7 @@ def artist_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": f,
+        "a": a.name,
         "content_list": c_list,
         "artist_list": artist_list,
         "type_list": type_list,
@@ -106,6 +107,7 @@ def culture_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": f,
+        "a": c,
         "content_list": c_list,
         "artist_list": artist_list,
         "type_list": type_list,
@@ -144,6 +146,7 @@ def type_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": f,
+        "a": t,
         "content_list": c_list,
         "artist_list": artist_list,
         "type_list": type_list,
@@ -182,6 +185,7 @@ def photographer_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": f,
+        "a": p,
         "content_list": c_list,
         "artist_list": artist_list,
         "type_list": type_list,

@@ -231,6 +231,17 @@
   </ul>
 </div>
 
+<div class="container" id="tag_wrapper">
+    <h1 id="tag_name">{{ a }}</h1>
+    <a href="http://127.0.0.1:8000/festival/{{ f.name }}" id="back_tag_link"><span class="glyphicon glyphicon-remove" id="back_tag" aria-hidden="true"></span></a>
+    <script>
+      if ("{{ a }}" == ""){
+        var a = document.getElementById("back_tag_link");
+        a.style.display = "none";
+      }
+    </script>
+</div>
+
 <div id="detail_container" class="container">
 </div>
 <script>

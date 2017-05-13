@@ -491,7 +491,18 @@ body .Scroll-Inner-Circles{
   padding-top: 20px;
 }
 
-
+#tag_wrapper{
+  padding-top: 30px;
+  text-align: right;
+}
+#tag_name{
+  color: #ffffff;
+  display: inline;
+  font-size: 28px;
+}
+#back_tag_link{
+  font-size: 20px;
+}
 
 
 
