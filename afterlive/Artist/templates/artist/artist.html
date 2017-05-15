@@ -5,7 +5,7 @@
 
 <div class="detail_header container-fluid" style="background-image: url('{{ f.artist_account.background.url }}')">
   <div class="detail_content container">
-    <div class="col-md-4 container"><a href="{{BASE_DIR}}/artist/{{ f.name }}"><img class="detail_logo" src="{{ f.artist_account.profile.url }}"></a></div>
+    <div class="col-md-4 container"><a href="/artist/{{ f.name }}"><img class="detail_logo" src="{{ f.artist_account.profile.url }}"></a></div>
   </div>
 </div>
 
@@ -19,12 +19,12 @@
         {% for festival in festival_list %}
           var artist_tag = document.createElement("a");
           artist_tag.innerHTML = artist_tag.innerHTML + "{{ festival.fl.name }}";
-          artist_tag.setAttribute("href", "{{BASE_DIR}}/artist/{{ f.name }}/Festival/{{ festival.fl.name }}/");
+          artist_tag.setAttribute("href", "/artist/{{ f.name }}/Festival/{{ festival.fl.name }}/");
           var menu = document.getElementById("festival_artist");
           menu.appendChild(artist_tag);
         {% endfor %}
         </script>
-        <a href="{{BASE_DIR}}/contact/">Did we miss someone?</a>
+        <a href="/contact/">Did we miss someone?</a>
       </div>
     </li>
     <li class="dropdown">
@@ -34,24 +34,24 @@
         {% for type in type_list %}
           var type_tag = document.createElement("a");
           type_tag.innerHTML = type_tag.innerHTML + "{{ type.content_type }}";
-          type_tag.setAttribute("href", "{{BASE_DIR}}/artist/{{ f.name }}/Type/{{ type.content_type }}/");
+          type_tag.setAttribute("href", "/artist/{{ f.name }}/Type/{{ type.content_type }}/");
           var menu = document.getElementById("type_dropdown");
           menu.appendChild(type_tag);
         {% endfor %}
         </script>
-        <a href="{{BASE_DIR}}/contact/">Did we miss something?</a>
+        <a href="/contact/">Did we miss something?</a>
       </div>
     </li>
     <li class="dropdown">
       <a href="#" class="dropbtn">Photographers</a>
       <div class="dropdown-content" id="festival_photographer">
-        <a href="{{BASE_DIR}}/contact/">Did You shoot for this festival???</a>
+        <a href="/contact/">Did You shoot for this festival???</a>
       </div>
       <script>
       {% for photographer in photographer_list %}
         var photographer_name = document.createElement("a");
         photographer_name.innerHTML = artist_tag.innerHTML + "{{ photographer.a.name }}";
-        photographer_name.setAttribute("href", "{{BASE_DIR}}/artist/{{ f.name }}/Photographer/{{ photographer.tag }}/");
+        photographer_name.setAttribute("href", "/artist/{{ f.name }}/Photographer/{{ photographer.tag }}/");
         var menu = document.getElementById("festival_photographer");
         menu.appendChild(photographer_name);
       {% endfor %}
@@ -233,7 +233,7 @@
 
 <div class="container" id="tag_wrapper">
     <h1 id="tag_name">{{ a }}</h1>
-    <a href="{{BASE_DIR}}/festival/{{ f.name }}" id="back_tag_link"><span class="glyphicon glyphicon-remove" id="back_tag" aria-hidden="true"></span></a>
+    <a href="/festival/{{ f.name }}" id="back_tag_link"><span class="glyphicon glyphicon-remove" id="back_tag" aria-hidden="true"></span></a>
     <script>
       if ("{{ a }}" == ""){
         var a = document.getElementById("back_tag_link");
