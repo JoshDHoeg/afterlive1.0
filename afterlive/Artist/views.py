@@ -62,6 +62,7 @@ def festival_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": a,
+        "a": f.name,
         "content_list": c_list,
         "festival_list": festival_list,
         "type_list": type_list,
@@ -97,6 +98,7 @@ def type_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": a,
+        "a": t,
         "content_list": c_list,
         "festival_list": festival_list,
         "type_list": type_list,
@@ -132,6 +134,7 @@ def photographer_filter_view(request, Experiences_name=None, Detail_name=None):
     context = {
         "title" : "dude",
         "f": a,
+        "a": p,
         "content_list": c_list,
         "festival_list": festival_list,
         "type_list": type_list,

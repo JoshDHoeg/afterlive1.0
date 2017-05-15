@@ -84,16 +84,23 @@ page loading style
   top: 0px;
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+#load_screen h1{
+  color: #e21818;
 }
 #loading{
-  /*border: 16px solid #f3f3f3;
-  border-top: 16px solid #0072c6;*/
   background: #e21818;
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  margin: 300px auto;
+  margin: 300px auto 100px auto;
   animation: fader 2s linear infinite;
+}
+@media screen and (max-width: 624px){
+  #loading{
+    margin: 200px auto 100px auto;
+  }
 }
 @keyframes fader {
     0% { opacity: 0;}
@@ -314,7 +321,40 @@ SECTION 3 - we made it to search.html
   overflow: hidden;
 }
 
-
+#vision{
+  text-align: center;
+}
+#vision h1{
+  color: #000000;
+}
+#vision #banner_phone{
+  display: none;
+}
+#vision #banner_small{
+  display: none;
+}
+#vision img{
+  margin: auto;
+}
+@media screen  and (max-width: 1300px){
+  #vision #banner_small{
+    display: block;
+  }
+  #vision #banner_large{
+    display: none;
+  }
+}
+@media screen  and (max-width: 900px){
+  #vision #banner_large{
+    display: none;
+  }
+  #vision #banner_phone{
+    display: block;
+  }
+  #vision #banner_small{
+    display: none;
+  }
+}
 
 /*------------------------------------------------scroll-festival-photographer*/
 .Scroll_title{
@@ -325,7 +365,7 @@ SECTION 3 - we made it to search.html
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 0;
-  margin-top: 30px;
+  margin-top: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
   background: #000000;
@@ -342,6 +382,7 @@ SECTION 3 - we made it to search.html
   height: 280px;
   background: #000000;
   padding: 0;
+  margin-bottom: 30px;
   background: -webkit-linear-gradient(-90deg, #000000, #353535, #000000);
   background: -o-linear-gradient(-90deg, #000000, #353535, #000000);
   background: -moz-linear-gradient(-90deg, #000000, #353535, #000000);
@@ -450,7 +491,18 @@ body .Scroll-Inner-Circles{
   padding-top: 20px;
 }
 
-
+#tag_wrapper{
+  padding-top: 30px;
+  text-align: right;
+}
+#tag_name{
+  color: #ffffff;
+  display: inline;
+  font-size: 28px;
+}
+#back_tag_link{
+  font-size: 20px;
+}
 
 
 
@@ -464,11 +516,11 @@ body .Scroll-Inner-Circles{
 .contentItem iframe{
   max-width: 100%;
   height: 350px;
-  border: 4px solid #474646;
+  border: 4px solid #000000;
   border-radius: 25px;
 }
 .contentItem iframe:hover{
-  border: 4px solid #595959;
+  border: 4px solid #000000;
 }
 @media screen and (max-width: 990px){
   .contentItem iframe{

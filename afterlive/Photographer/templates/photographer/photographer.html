@@ -5,7 +5,7 @@
 
 <div class="detail_header container-fluid" style="background-image: url('{{ f.photographer_account.background.url }}')">
   <div class="detail_content container">
-    <div class="col-md-4 container"><a href="http://127.0.0.1:8000/photographer/{{ f.name }}"><img class="detail_logo" src="{{ f.photographer_account.profile.url }}"></a></div>
+    <div class="col-md-4 container"><a href="/photographer/{{ f.name }}"><img class="detail_logo" src="{{ f.photographer_account.profile.url }}"></a></div>
   </div>
 </div>
 
@@ -19,12 +19,12 @@
         {% for artist in artist_list %}
           var artist_tag = document.createElement("a");
           artist_tag.innerHTML = artist_tag.innerHTML + "{{ artist.a.name }}";
-          artist_tag.setAttribute("href", "http://127.0.0.1:8000/photographer/{{ f.name }}/Artist/{{ artist.a.name }}/");
+          artist_tag.setAttribute("href", "/photographer/{{ f.name }}/Artist/{{ artist.a.name }}/");
           var menu = document.getElementById("festival_artist");
           menu.appendChild(artist_tag);
         {% endfor %}
         </script>
-        <a href="http://127.0.0.1:8000/contact/">Did we miss someone?</a>
+        <a href="/contact/">Did we miss someone?</a>
       </div>
     </li>
     <li class="dropdown">
@@ -34,12 +34,12 @@
         {% for type in type_list %}
           var type_tag = document.createElement("a");
           type_tag.innerHTML = type_tag.innerHTML + "{{ type.content_type }}";
-          type_tag.setAttribute("href", "http://127.0.0.1:8000/photographer/{{ f.name }}/Type/{{ type.content_type }}/");
+          type_tag.setAttribute("href", "/photographer/{{ f.name }}/Type/{{ type.content_type }}/");
           var menu = document.getElementById("type_dropdown");
           menu.appendChild(type_tag);
         {% endfor %}
         </script>
-        <a href="http://127.0.0.1:8000/contact/">Did we miss something?</a>
+        <a href="/contact/">Did we miss something?</a>
       </div>
     </li>
     <li class="dropdown">
@@ -49,12 +49,12 @@
         {% for photographer in photographer_list %}
           var photographer_name = document.createElement("a");
           photographer_name.innerHTML = artist_tag.innerHTML + "{{ photographer.photographer_photographer.name }}";
-          photographer_name.setAttribute("href", "http://127.0.0.1:8000/photographer/{{ f.name }}/Photographer/{{ photographer.photographer_photographer.name }}/");
+          photographer_name.setAttribute("href", "/photographer/{{ f.name }}/Photographer/{{ photographer.photographer_photographer.name }}/");
           var menu = document.getElementById("festival_photographer");
           menu.appendChild(photographer_name);
         {% endfor %}
         </script>
-        <a href="http://127.0.0.1:8000/contact/">Did You shoot for this festival???</a>
+        <a href="/contact/">Did You shoot for this festival???</a>
       </div>
     </li>
   </ul>
@@ -229,6 +229,17 @@
     }
     </script>
   </ul>
+</div>
+
+<div class="container" id="tag_wrapper">
+    <h1 id="tag_name">{{ a }}</h1>
+    <a href="/festival/{{ f.name }}" id="back_tag_link"><span class="glyphicon glyphicon-remove" id="back_tag" aria-hidden="true"></span></a>
+    <script>
+      if ("{{ a }}" == ""){
+        var a = document.getElementById("back_tag_link");
+        a.style.display = "none";
+      }
+    </script>
 </div>
 
 <div id="detail_container" class="container">
