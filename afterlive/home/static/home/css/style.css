@@ -516,11 +516,11 @@ body .Scroll-Inner-Circles{
 .contentItem iframe{
   max-width: 100%;
   height: 350px;
-  border: 4px solid #474646;
+  border: 4px solid #000000;
   border-radius: 25px;
 }
 .contentItem iframe:hover{
-  border: 4px solid #595959;
+  border: 4px solid #000000;
 }
 @media screen and (max-width: 990px){
   .contentItem iframe{

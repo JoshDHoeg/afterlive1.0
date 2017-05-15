@@ -1,0 +1,17 @@
+source al_1.sql
+source CultureScript.sql
+source FamilyScript.sql
+source CountryScript.sql
+source StateScript.sql
+source TypeScript.sql
+source IdentityScript.sql
+source GenreScript.sql
+source LinkScript.sql
+source AccountScript.sql
+source VenueScript.sql
+source PhotographerScript.sql
+source ArtistScript.sql
+source FestivalScript.sql
+source ContentScript.sql
+source FAScript.sql
+source FPScript.sql
