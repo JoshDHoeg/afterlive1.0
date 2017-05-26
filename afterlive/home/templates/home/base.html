@@ -8,28 +8,31 @@
 
   <title>After.Live</title>
   {% load staticfiles %}
+  <!--add jquery and bootstrap-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <script src="static/home/js/script.js"></script> -->
+  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
   <!--add the stylsheets the style.css should be before the bootstrap.min.css-->
   <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css"/>
   <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-  <!--Lets add some google analytics, this script should appear at the top of every webpage-->
 
+  <!--favicon attempt-->
   <link rel="icon" href="{% static 'home/images/favicon.ico' %}?v=2">
 
   <!--Google analytics-->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-89973275-1', 'auto'); ga('send', 'pageview');
   </script>
+
   <!--Hotjar embed-->
   <script>
     (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:383069,hjsv:5}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+
   <!-- HubSpot Embed -->
   <script type="text/javascript" src="//js.hs-scripts.com/2825884.js" id="LeadinEmbed-2825884" crossorigin="use-credentials" async defer></script>
-  <!--becuase I couldnt get it to override the other css in the style.css sheet the scrollbar styling needs to go here-->
+
   <script>
     //list of selected tags, declare the list and initialize it whenever you click on a tag
     var selectedList = [];
@@ -40,8 +43,9 @@
         var load_screen = document.getElementById('load_screen');
         document.getElementById("page-wrapper").removeChild(load_screen);
     });
-
   </script>
+
+  <!--scrollbar default styling-->
   <style>
     ::-webkit-scrollbar{height: 6px;width: 6px;margin: 0;}
     ::-webkit-scrollbar-track{background: #474646;}
@@ -51,6 +55,7 @@
     a:hover {text-decoration: none; color: #ffffff; font-weight: bold;}
     a:active {text-decoration: none; color: #ffffff;}
   </style>
+
 </head>
 <body>
   <div class="page-wrapper" id="page-wrapper">
@@ -60,28 +65,53 @@
     </div>
 
 
-    <div class="header container center-block">
-      <div class="">
-        <div class="logo">
-          <a href="/" >
-            <img src="{% static 'home/images/logo.png' %}" alt="logo" height="32">
-          </a>
-        </div>
-        <div class="ICON-C">
-          <div class="ICON ICON-A"><a target="_blank" href="https://www.facebook.com/afterlivemedia/"><img class="center-block" src="{% static 'home/images/SocialMedia/Facebook.png' %}" height="40px"></a></div>
-          <div class="ICON ICON-A"><a target="_blank" href="https://www.instagram.com/afterlivemedia/?hl=en"><img class="center-block" src="{% static 'home/images/SocialMedia/Instagram.png' %}" height="40px"></a></div>
-          <div class="ICON ICON-A"><a target="_tab" href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ"><img class="center-block" src="{% static 'home/images/SocialMedia/Youtube.png' %}" height="40px"></a></div>
-          <!-- <div class="ICON" id="searchbtn"><a href="/search/"><img  class="center-block" src="{% static 'home/images/search.png' %}" height="40px"></a></div> -->
-        </div>
-      </div>
-      <div class="form-container container form-inline search-form" id="searchwidget">
-        <form class="center searchForm" name="myForm" autocomplete="off" method="GET" action="/search/">
-          <input id="searchBar" name="q" type="text" class=" col-xs-12 searchBar widget_searchBar" placeholder="Search for your favorite set..." />
-          <button id="searchBar_Submit" type="submit"><img  class="center-block widget_searchBar_Submit" src="{% static 'home/images/search.png' %}" height="40px"></button>
-        </form>
-      </div>
-    </div>
+    <div class="container-fluid" id="header_wrapper">
+      <nav class="navbar navbar-default" id="header">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button class="btn collapsed" id="nav_menu" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <img src="{% static 'home/images/menu.png' %}" width="28px" alt="menu_hamburger">
+            </button>
+            <div class="logo">
+              <a href="/" ><img src="{% static 'home/images/logo.png' %}" height="32" alt="logo"></a>
+            </div>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="nav_searchbtn" href="" data-toggle="modal" data-target=".bs-example-modal-lg">
+                  <img class="center-block" src="{% static 'home/images/searchbtn.png' %}" height="40px" alt="search_btn">
+                </a>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <img class="center-block" src="{% static 'home/images/close.png' %}" height="20px" alt="close_btn">
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Search for a festival</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-container container form-inline" id="searchwidget">
+                          <form class="center" name="myForm" autocomplete="off" method="GET" action="/search/">
+                            <input class=" col-xs-12 searchBar widget_searchBar" id="searchBar" name="q" type="text" placeholder="Search for your favorite set..." />
+                            <button class="center-block widget_searchBar_Submit" id="searchBar_Submit" type="submit"><img src="{% static 'home/images/searchbtn.png' %}" height="40px" alt="submit_search_btn"></button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="ICON"><a target="_blank" href="https://www.facebook.com/afterlivemedia/"><img class="center-block" src="{% static 'home/images/SocialMedia/Facebook.png' %}" height="40px" alt="facebook_link"></a></li>
+              <li class="ICON"><a target="_blank" href="https://www.instagram.com/afterlivemedia/?hl=en"><img class="center-block" src="{% static 'home/images/SocialMedia/Instagram.png' %}" height="40px" alt="instagram_link"></a></li>
+              <li class="ICON"><a target="_blank" href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ"><img class="center-block" src="{% static 'home/images/SocialMedia/Youtube.png' %}" height="40px" alt="youtube_link"></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
+    </div> <!-- /container -->
     {% block header %}
 
     {% endblock %}

@@ -45,13 +45,13 @@ html body{
   background-size: cover;
 }
 .inner-body{
-  padding-top: 60px;
+  padding-top: 0px;
   padding-bottom: 50px;
   min-height: 100%;
 }
 @media screen and (max-width: 624px){
   html .inner-body{
-    padding-top: 150px;
+    padding-top: 0px;
   }
 }
 h1{
@@ -108,40 +108,108 @@ page loading style
     100% { opacity: 0;}
 }
 
-/*------------------------------------------------------------header-logo-menu*/
-body .header{
-  width: 100%;
-  position: fixed;
-  z-index: 5;
-  background: #000000;
-  border-bottom: 1px solid #ffffff;
-}
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------
+--------------------------------HEADER-----------------------------------------
+-----------------------------------------------------------------------------*/
+/*Logo and base header styling*/
 .logo{
   padding: 15px;
   text-align: center;
   float: left;
 }
-.header .ICON{
-  padding: 10px;
-  display: inline-block;
-  float: right;
+#header_wrapper{
+  padding:0px;
 }
-.header .ICON img{
-  text-align: center;
+#header_wrapper #header{
+  background: #000000;
+  border: none;
+  border-bottom: 1px solid #ffffff;
   margin: 0;
 }
-@media screen  and (max-width: 624px){
+#nav_menu{
+  background: none;
+  float: right;
+  margin: 9px 9px 9px 0;
+}
+
+/*The styling for the popup search model*/
+.modal-header .close{
+  color: #000000;
+}
+.modal .modal-content{
+  background: rgba(0, 0, 0, 0.75);
+}
+.modal-body{
+  height: 75px;
+}
+
+/*styling for the actual search widget in the popup model*/
+#searchwidget{
+  width: 100%;
+  float: none;
+  margin-top: 10px;
+  display: inline-block;
+  margin: auto;
+  border-radius: 10px;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #ffffff;
+}
+#searchBar{
+  display: inline-block;
+  border: none;
+  float: left;
+  background: rgba(255, 0, 0, 0.0);
+  height: 50px;
+  color: #000000;
+  font-size: 20px;
+}
+#searchBar_Submit{
+  display: inline-block;
+  float: right;
+  background: rgba(226, 24, 24, 1);
+  border: none;
+  height: 50px;
+  padding: 0;
+}
+#searchwidget #searchBar{width: 85%; height: 40px;}
+#searchwidget #searchBar_Submit{width: 15%; height: 40px; }
+
+/*default settings for all browsers*/
+#searchwidget #searchBar::-webkit-input-placeholder {color: #000;}
+#searchwidget #searchBar::-moz-placeholder {color: #000;}
+#searchwidget #searchBar:-ms-input-placeholder {color: #000;}
+
+/*screen size changes that need to happen for sexy styling*/
+@media screen  and (min-width: 768px){
+  #nav_menu {
+    display: none !important;
+  }
+}
+@media screen  and (max-width: 768px){
   .logo{
     float: none;
   }
-  .header .ICON{
-    display:inline-block;
-    float:none;
-  }
-  .header .ICON-C{
-    text-align: center;
+  .logo img{
+    height: 28px;
   }
 }
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------------footer*/
 .footer{
@@ -172,88 +240,7 @@ body .header{
 /*------------------------------------------------------------------------------
 Main Page Styling
 ------------------------------------------------------------------------------*/
-#search_wrapper{
-  padding: 0;
-  margin: 0;
-  background-image: url("Background.png");
-  background-size: cover;
-}
-.search {
-  text-align: center;
-  z-index: 2;
-  position: relative;
-  padding-top: 130px;
-  padding-bottom: 130px;
-}
 
-/*general searchbar styling*/
-.search-form{
-  display: inline-block;
-  margin: auto 10px;
-  border-radius: 25px;
-  padding: 0 !important;
-  overflow: hidden;
-  background: #ffffff;
-}
-.searchBar{
-  display: inline-block;
-  border: none;
-  float: left;
-  background: rgba(255, 0, 0, 0.0);
-  height: 50px;
-  color: #e21818;
-}
-#searchBar_Submit{
-  display: inline-block;
-  float: right;
-  background: rgba(226, 24, 24, 1);
-  border: none;
-  height: 50px;
-  padding: 0;
-}
-.search-form .searchBar::-webkit-input-placeholder {color: #000;}
-.search-form .searchBar::-moz-placeholder {color: #000;}
-.search-form .searchBar:-ms-input-placeholder {color: #000;}
-.search-form .searchBar:-moz-placeholder {color: #000;}
-.search-form:hover .searchBar::-webkit-input-placeholder {color: #ffffff;}
-.search-form:hover .searchBar::-moz-placeholder {color: #ffffff;}
-.search-form:hover .searchBar:-ms-input-placeholder {color: #ffffff;}
-.search-form:hover .searchBar:-moz-placeholder {color: #ffffff;}
-.search-form:hover{background: rgba(226, 24, 24, 0.6) !important;}
-.search-form:hover .searchBar{color: #ffffff !important;}
-
-/*header search widget*/
-#searchwidget{
-  width: 30%;
-  float: right;
-  margin-top: 10px;
-}
-@media screen and (max-width: 624px){
-  #searchwidget{
-    width: 100%;
-    float: none;
-    margin: auto;
-  }
-
-}
-#searchwidget .searchBar{width: 85%; height: 40px;}
-#searchwidget #searchBar_Submit{width: 15%; height: 40px; }
-
-/*Main search bar*/
-#mainsearch {
-  width: 100%;
-  margin: auto;
-  display: block;
-  margin: 0;
-  margin-top: 20px;
-  padding: 6px;
-}
-#mainsearch .searchBar{
-  width: 90%;
-  font-weight: bold;
-  font-size: 20px;
-}
-#mainsearch #searchBar_Submit{width: 10%;}
 
 /*highlights ifram styling*/
 #social_embed{
