@@ -14,3 +14,13 @@ def main_page(request):
     }
 
     return render(request, "home/main.html", context)
+
+
+def qoute_page(request):
+    highlight_list = Content.objects.filter(content_festival = 6)[:16]
+
+    context= {
+        "highlight_list": highlight_list,
+    }
+
+    return render(request, "home/qoute.html", context)

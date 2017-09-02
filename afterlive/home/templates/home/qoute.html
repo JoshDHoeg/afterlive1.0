@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Josh Hoeg">
+
+    <title>Boxed Smile</title>
+
+    <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+
+    <!--scrollbar default styling-->
+    <style>
+      ::-webkit-scrollbar{height: 6px;width: 6px;margin: 0;}
+      ::-webkit-scrollbar-track{background: #ffffff;}
+      ::-webkit-scrollbar-thumb{background: #e21818;}
+      a:link {text-decoration: none; color: #ffffff;}
+      a:visited {text-decoration: none; color: #ffffff;}
+      a:hover {text-decoration: none; color: #ffffff;}
+      a:active {text-decoration: none; color: #ffffff;}
+    </style>
+
+
+
+  </head>
+  <body>
+
+    <nav class="navbar nav-header">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
+      </a>
+    </nav>
+
+    <section class="typeform">
+      <div class="typeform-widget" data-url="https://afterlive.typeform.com/to/hTdDnd" style="width: 100%; height: 500px;" > </div>
+      <script>
+        (function() {
+          var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/";
+          if(!gi.call(d,id)) {
+            js=ce.call(d,"script");
+            js.id=id;
+            js.src=b+"embed.js";
+            q=gt.call(d,"script")[0];
+            q.parentNode.insertBefore(js,q)
+          }
+        })()
+        </script>
+    </section>
+
+
+
+
+
+    <nav class="navbar nav-footer">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
+      </a>
+    </nav>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>
