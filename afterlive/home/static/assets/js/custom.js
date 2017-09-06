@@ -18,3 +18,10 @@ $(window).scroll(function(){
    var srotate = "rotate(" + sdegree + "deg)";
    $('.record').css({"-moz-transform" : srotate, "-webkit-transform" : srotate, "transform" : srotate,});
 });
+
+$(document).ready(function(){
+	$('#nav-menu').click(function(){
+		$(this).toggleClass('open');
+		$('#nav-dropdown').toggleClass('drop');
+	});
+});

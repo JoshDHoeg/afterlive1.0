@@ -11,6 +11,8 @@ body{
   -moz-box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
   box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
 }
+
+
 .navbar{
   width: 100%;
   height: 80px;
@@ -18,10 +20,110 @@ body{
   text-align: center;
 }
 .nav-header{
-  border-bottom: 5px solid #CA3435;
+  border-bottom: 5px solid #e21818;
 }
 .nav-footer{
-  border-top: 5px solid #CA3435;
+  border-top: 5px solid #e21818;
+}
+#nav-menu{
+  width: 60px;
+  height: 60px;
+  position: relative;
+  float: right;
+  margin: 10px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-menu span{
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background: #e21818;
+  border-radius: 10px;
+  opacity: 1;
+  top: 25px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-menu span:nth-child(1) {
+  left: 10px;
+}
+#nav-menu span:nth-child(2) {
+  left: 25px;
+}
+#nav-menu span:nth-child(3) {
+  left: 40px;
+}
+#nav-menu.open span:nth-child(1) {
+  top: 25px;
+  width: 40px;
+  height: 8px;
+  left: 10px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+#nav-menu.open span:nth-child(3) {
+  top: 25px;
+  width: 40px;
+  left: 10px;
+  height: 8px;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+#nav-dropdown{
+    width: 0;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    z-index: 10;
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+}
+#nav-dropdown.drop{
+    background: rgba(225,225,225,0.95);
+    width: 100%;
+    height: 100%;
+    -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+.right{
+    float: right;
+}
+.left{
+    float: left;
 }
 .gallery > .container{
   z-index: 5;
