@@ -22,65 +22,46 @@
       ::-webkit-scrollbar-thumb{background: #e21818;}
       a:link {text-decoration: none; color: #ffffff;}
       a:visited {text-decoration: none; color: #ffffff;}
-      a:hover {text-decoration: none; color: #ffffff; font-weight: bold;}
+      a:hover {text-decoration: none; color: #ffffff;}
       a:active {text-decoration: none; color: #ffffff;}
     </style>
 
   </head>
-  <body>
+  <body class="nav-no-scroll">
 
-    <img class="record" id="record-1" src="{% static 'assets/images/record.png' %}">
-    <img class="record" id="record-2" src="{% static 'assets/images/record.png' %}">
-    <img class="record" id="record-3" src="{% static 'assets/images/record.png' %}">
-    <img class="record" id="record-4" src="{% static 'assets/images/record.png' %}">
+    <div id="load_screen">
+      <div id="loading-wrapper"><div id="loading"></div></div>
+    </div>
 
     <nav class="navbar nav-header">
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
-      </a>
+      <div class="nav">
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
+        </a>
+      </div>
       <div id="nav-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div id="nav-dropdown">
-        <div>
-          bro this shit worked
-        </div>
-      </div>
     </nav>
+    <div id="nav-dropdown-addon"></div>
+    <div id="nav-dropdown">
+      <ul class="nav-links">
+        <li><a href="/home/qoute">Hire Us</a></li>
+        <li><a href="/search">2D Videos</a></li>
+      </ul>
+      <ul class="nav-socials">
+        <li><a href="https://www.facebook.com/afterlivemedia/" target="_blank"><img src="{% static 'assets/images/socials/facebook.png' %}" alt="_social_icon"></a></li>
+        <li><a href="https://www.youtube.com/channel/UCs0NRsgac484mhpDO1pnuOQ" target="_blank"><img src="{% static 'assets/images/socials/youtube.png' %}" alt="_social_icon"></a></li>
+        <li><a href="https://www.instagram.com/afterlivemedia/" target="_blank"><img src="{% static 'assets/images/socials/instagram.png' %}" alt="_social_icon"></a></li>
+      </ul>
+    </div>
 
-    <section class="gallery">
-      <div class="container">
-        <iframe class="shadow" width="560" height="315" src="https://www.youtube.com/embed/XsfotjMMRaY" frameborder="0" allowfullscreen></iframe>
-      </div>
 
-      <div class="container">
-        <iframe class="shadow" width="560" height="315" src="https://www.youtube.com/embed/jT9AGVAsim4" frameborder="0" allowfullscreen></iframe>
-      </div>
+    {% block content %}
 
-      <div class="container">
-        <iframe class="shadow" width="560" height="315" src="https://www.youtube.com/embed/hVVBqertx6c" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="container">
-        <iframe class="shadow" width="560" height="315" src="https://www.youtube.com/embed/eU_DT4n_m7o" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="container">
-        <iframe class="shadow" width="560" height="315" src="https://www.youtube.com/embed/ii73Aoubt0I" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="btn">
-        <a href="/search">Watch More</a>
-      </div>
-      <div class="btn">
-        <a href="/home/qoute">Hire Us</a>
-      </div>
-    </section>
-
+    {% endblock %}
 
 
     <nav class="navbar nav-footer">

@@ -13,7 +13,7 @@ def main_page(request):
         "highlight_list": highlight_list,
     }
 
-    return render(request, "home/main.html", context)
+    return render(request, "home/gallery.html", context)
 
 
 def qoute_page(request):

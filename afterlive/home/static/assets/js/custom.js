@@ -23,5 +23,12 @@ $(document).ready(function(){
 	$('#nav-menu').click(function(){
 		$(this).toggleClass('open');
 		$('#nav-dropdown').toggleClass('drop');
+		$('#nav-dropdown-addon').toggleClass('drop');
+		$('body').toggleClass('nav-no-scroll');
 	});
+});
+
+window.addEventListener("load", function(){
+  $('#load_screen').toggleClass('fadeOut');
+  $('body').toggleClass('nav-no-scroll');
 });

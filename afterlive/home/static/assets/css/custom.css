@@ -1,3 +1,16 @@
+@keyframes bubble{
+  0% {width: 8px; height: 8px; }
+  50% {width: 32px; height: 32px; }
+  100% {width: 8px; height: 8px; }
+}
+@keyframes rotation{
+  0% {transform: rotate(0deg); }
+  100% {transform: rotate(7200deg); }
+}
+/*@keyframes fadeOut{
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}*/
 *{
   padding: 0;
   margin: 0;
@@ -11,6 +24,42 @@ body{
   -moz-box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
   box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
 }
+.fadeOut{
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+
+}
+#load_screen{
+  background: #EEEEEE;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#loading{
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background: #e21818;
+  animation-name: bubble;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+#loading-wrapper{
+  height: 64px;
+  width: 32px;
+  margin: 10% auto;
+  display: block;
+  animation-name: rotation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
 
 
 .navbar{
@@ -18,9 +67,11 @@ body{
   height: 80px;
   background: #ffffff;
   text-align: center;
+  z-index: 15;
 }
 .nav-header{
   border-bottom: 5px solid #e21818;
+  position: fixed;
 }
 .nav-footer{
   border-top: 5px solid #e21818;
@@ -28,8 +79,9 @@ body{
 #nav-menu{
   width: 60px;
   height: 60px;
-  position: relative;
-  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
   margin: 10px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -91,26 +143,91 @@ body{
   transform: rotate(225deg);
 }
 
-#nav-dropdown{
-    width: 0;
-    height: 100%;
+#nav-dropdown-addon{
+    width: 100%;
+    height:100%;
     position: fixed;
-    right: 0;
-    z-index: 10;
-      -webkit-transition: .5s ease-in-out;
-      -moz-transition: .5s ease-in-out;
-      -o-transition: .5s ease-in-out;
-      transition: .5s ease-in-out;
+    top: 100%;
+    z-index: 9;
+    background: rgba(225,225,225,0.8);
+      -webkit-transition: 1s ease-in-out;
+      -moz-transition: 1s ease-in-out;
+      -o-transition: 1s ease-in-out;
+      transition: 1s ease-in-out;
 }
-#nav-dropdown.drop{
-    background: rgba(225,225,225,0.95);
+#nav-dropdown-addon.drop{
+    top: 80px;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+
+#nav-dropdown{
     width: 100%;
     height: 100%;
-    -webkit-transition: .5s ease-in-out;
-      -moz-transition: .5s ease-in-out;
-      -o-transition: .5s ease-in-out;
-      transition: .5s ease-in-out;
+    position: fixed;
+    left: 100%;
+    z-index: 10;
+    background: rgba(226, 24, 24, 0.9);
+      -webkit-transition: 1s ease-in-out;
+      -moz-transition: 1s ease-in-out;
+      -o-transition: 1s ease-in-out;
+      transition: 1s ease-in-out;
 }
+#nav-dropdown.drop{
+    left: 0;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.nav-no-scroll{
+    overflow: hidden
+}
+      #nav-dropdown{
+        padding-top: 100px;
+      }
+      .nav-socials, .nav-links{
+        display: block;
+        text-align: center;
+        padding: 36px 0;
+      }
+      .nav-links li{
+        text-decoration: none;
+        list-style: none;
+        font-size: 48px;
+        padding: 20px;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+      }
+      .nav-links li a{
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+      }
+      .nav-links li:hover{
+        background: #ffffff;
+       }
+       .nav-links li:hover a{
+        color: #e21818 !important;
+      }
+      .nav-socials li{
+        display: inline;
+        padding: 10px;
+      }
+      .nav-socials li img{
+        width: 60px;
+        opacity: 0.8;
+      }
+      .nav-socials li img:hover{
+        opacity: 1;
+      }
 
 
 

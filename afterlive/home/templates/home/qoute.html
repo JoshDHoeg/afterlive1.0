@@ -1,81 +1,20 @@
+{% extends "home/main.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Josh Hoeg">
+{% block content %}
 
-    <title>After Live</title>
+    <html>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>Add your Typeform title here</title>
+        <style type="text/css">
+          html{ margin: 0; height: 100%; overflow: hidden; }
+          iframe{ position: absolute; left:0; right:0; bottom:0; top:0; border:0; }
+        </style>
+      </head>
+      <body>
+        <iframe id="typeform-full" width="100%" height="100%" frameborder="0" src="https://afterlive.typeform.com/to/hTdDnd"></iframe>
+        <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
+      </body>
+    </html>
 
-    <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-
-
-    <!--scrollbar default styling-->
-    <style>
-      ::-webkit-scrollbar{height: 6px;width: 6px;margin: 0;}
-      ::-webkit-scrollbar-track{background: #ffffff;}
-      ::-webkit-scrollbar-thumb{background: #e21818;}
-      a:link {text-decoration: none; color: #ffffff;}
-      a:visited {text-decoration: none; color: #ffffff;}
-      a:hover {text-decoration: none; color: #ffffff;}
-      a:active {text-decoration: none; color: #ffffff;}
-    </style>
-
-
-
-  </head>
-  <body>
-
-    <nav class="navbar nav-header">
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
-      </a>
-      <div id="nav-menu" onclick="dropdown()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div id="nav-dropdown">
-        <div>
-          bro this shit worked
-        </div>
-      </div>
-    </nav>
-
-    <section class="typeform">
-      <div class="typeform-widget" data-url="https://afterlive.typeform.com/to/hTdDnd" style="width: 100%; height: 500px;" > </div>
-      <script>
-        (function() {
-          var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/";
-          if(!gi.call(d,id)) {
-            js=ce.call(d,"script");
-            js.id=id;
-            js.src=b+"embed.js";
-            q=gt.call(d,"script")[0];
-            q.parentNode.insertBefore(js,q)
-          }
-        })()
-        </script>
-    </section>
-
-
-
-
-
-    <nav class="navbar nav-footer">
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'assets\images\logo.png' %}" width="80" height="80" alt="">
-      </a>
-    </nav>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{% static 'assets/js/custom.js' %}"></script>
-
-  </body>
-</html>
+{% endblock %}
