@@ -316,3 +316,77 @@ body{
   width: 384px;
   height: auto;
 }
+
+
+#intro{
+  height: 885px;
+  width: 100%;
+  background-image: url('../images/background/intro-lg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#intro .intro-image{
+  float: right;
+  padding-top: 100px;
+}
+#intro .intro-image-sm{
+  display: none;
+  float: right;
+}
+#intro .intro-header{
+  font-size: 64px;
+  padding: 176px 96px 32px 48px;
+  font-weight: bold;
+  color: rgba( 5,5,5,1);
+}
+#intro .intro-cta .btn{
+  background: #e21818;
+  padding: 20px;
+  font-size: 36px;
+  margin: 48px;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+#intro .intro-cta .btn:hover{
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  -webkit-box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: 20px 20px 20px 0px rgba(0,0,0,0.75);
+}
+@media screen and (max-width: 1120px){
+  #intro .intro-image img{
+    width: 480px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 900px){
+  #intro{
+    background-image: url('../images/background/intro-md.png');
+  }
+  #intro .intro-header{
+    color: #ffffff;
+  }
+  #intro .intro-header{
+    padding: 108px 96px 32px 48px;
+  }
+  #intro .intro-image{
+    display: none;
+  }
+  #intro .intro-image-sm{
+    display: block;
+
+  }
+}
+@media screen and (max-width: 720px){
+  #intro{
+    background-image: url('../images/background/intro-sm.png');
+  }
+}
+@media screen and (max-width: 720px){
+
+}
