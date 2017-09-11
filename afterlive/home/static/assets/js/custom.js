@@ -32,3 +32,29 @@ window.addEventListener("load", function(){
   $('#load_screen').toggleClass('fadeOut');
   $('body').toggleClass('nav-no-scroll');
 });
+
+
+  window.onload = function () {
+
+	var parallaxBox = document.getElementById ( 'box' );
+	var c4left = document.getElementById ( 'layer' ).offsetLeft,
+	c4top = document.getElementById ( 'layer' ).offsetTop;
+
+	parallaxBox.onmousemove = function ( event ) {
+		event = event || window.event;
+		var x = event.clientX - parallaxBox.offsetLeft,
+		y = event.clientY - parallaxBox.offsetTop;
+
+		mouseParallax ( 'layer', c4left, c4top, x, y, 65 );
+	}
+
+}
+
+function mouseParallax ( id, left, top, mouseX, mouseY, speed ) {
+	var obj = document.getElementById ( id );
+	var parentObj = obj.parentNode,
+	containerWidth = parseInt( parentObj.offsetWidth ),
+	containerHeight = parseInt( parentObj.offsetHeight );
+	obj.style.left = left - ( ( ( mouseX - ( parseInt( obj.offsetWidth ) / 2 + left ) ) / containerWidth ) * speed ) + 'px';
+	obj.style.top = top - ( ( ( mouseY - ( parseInt( obj.offsetHeight ) / 2 + top ) ) / containerHeight ) * speed ) + 'px';
+}
