@@ -28,7 +28,6 @@ body{
   -moz-transition: .5s ease-in-out;
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
-
 }
 #load_screen{
   background: #EEEEEE;
@@ -244,12 +243,13 @@ body{
 .left{
     float: left;
 }
-.gallery > .container, #gallery-title{
+.gallery > iframe, #gallery-title{
   z-index: 5;
   position: relative;
 }
   #gallery{
     background: #E43738;
+    padding-bottom: 60px;
   }
   #gallery-title{
     color: #ffffff;
@@ -257,13 +257,21 @@ body{
     text-align: center;
     padding-top: 60px;
   }
-.container{
-  padding: 30px 10px 30px 10px;
-}
-.container iframe{
+iframe{
   margin: auto;
-  display: block;
+  display: inline-block;
+  margin: 30px;
 }
+.scroll{
+width: 4370px;
+}
+.scroll_wrapper{
+    overflow-x: scroll;
+    width: 100%;
+}
+      .scroll_wrapper::-webkit-scrollbar{height: 8px;}
+      .scroll_wrapper::-webkit-scrollbar-track{background: #ffffff; margin: 15%;}
+      .scroll_wrapper::-webkit-scrollbar-thumb{border: solid 1px #fff;}
 
 
 
