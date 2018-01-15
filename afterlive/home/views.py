@@ -24,3 +24,7 @@ def qoute_page(request):
     }
 
     return render(request, "home/qoute.html", context)
+
+def spaces_page(request):
+
+    return render(request, "home/spaces.html")

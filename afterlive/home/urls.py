@@ -21,7 +21,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.main_page),
-    url(r'/qoute', views.qoute_page),
+    url(r'qoute/', views.qoute_page),
+    url(r'spaces/', views.spaces_page),
 ]
 
 if settings.DEBUG:
